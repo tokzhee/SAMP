@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Views/Shared/_PersonList.cshtml" hash="6403310e" filehash="2c059fd018ad" flags="110000" assembly="App_Web_i1zvnvnx" type="ASP._Page_Views_Shared__PersonList_cshtml">
+    <filedeps>
+        <filedep name="/Views/Shared/_PersonList.cshtml" />
+    </filedeps>
+</preserve>

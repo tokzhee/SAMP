@@ -1,0 +1,34 @@
+﻿@model App.Web.ViewModels.ViewUserProfileViewModel
+
+@{
+    ViewBag.Title = "User Profile";
+}
+
+
+<div class="row profile-page">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                @if (TempData["Alert"] != null)
+                {
+                    @Html.Partial("_Alert", TempData["Alert"])
+                }
+
+                <div class="row mb-4">
+                    <div class="col-12 d-flex align-items-center justify-content-between">
+                        <h5 class="page-title">
+                            @Model.UserModel.Firstname's Profile
+                        </h5>
+                    </div>
+                </div>
+                @Html.Partial("_Profile", Model.UserModel)
+                <div>
+                    <a href="@Url.Action("ViewUsers")" class="btn btn-primary btn-xs">
+                        <i class="mdi mdi-refresh"></i>
+                        Back
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

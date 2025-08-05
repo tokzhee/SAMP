@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsEmployerProfiledSalaryAccountsReport" targetNamespace="http://tempuri.org/dsEmployerProfiledSalaryAccountsReport.xsd" xmlns:mstns="http://tempuri.org/dsEmployerProfiledSalaryAccountsReport.xsd" xmlns="http://tempuri.org/dsEmployerProfiledSalaryAccountsReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsEmployerProfiledSalaryAccountsReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsEmployerProfiledSalaryAccountsReport" msprop:Generator_UserDSName="dsEmployerProfiledSalaryAccountsReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtIdentifiedSalaryAccountsReport" msprop:Generator_TableClassName="dtIdentifiedSalaryAccountsReportDataTable" msprop:Generator_TableVarName="tabledtIdentifiedSalaryAccountsReport" msprop:Generator_RowChangedName="dtIdentifiedSalaryAccountsReportRowChanged" msprop:Generator_TablePropName="dtIdentifiedSalaryAccountsReport" msprop:Generator_RowDeletingName="dtIdentifiedSalaryAccountsReportRowDeleting" msprop:Generator_RowChangingName="dtIdentifiedSalaryAccountsReportRowChanging" msprop:Generator_RowEvHandlerName="dtIdentifiedSalaryAccountsReportRowChangeEventHandler" msprop:Generator_RowDeletedName="dtIdentifiedSalaryAccountsReportRowDeleted" msprop:Generator_RowClassName="dtIdentifiedSalaryAccountsReportRow" msprop:Generator_UserTableName="dtIdentifiedSalaryAccountsReport" msprop:Generator_RowEvArgName="dtIdentifiedSalaryAccountsReportRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AccountNumber" msdata:Caption="Username" msprop:Generator_ColumnVarNameInTable="columnAccountNumber" msprop:Generator_ColumnPropNameInRow="AccountNumber" msprop:Generator_ColumnPropNameInTable="AccountNumberColumn" msprop:Generator_UserColumnName="AccountNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="LastName" msdata:Caption="DateFrom" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName" type="xs:string" minOccurs="0" />
+              <xs:element name="FirstName" msdata:Caption="DateTo" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" type="xs:string" minOccurs="0" />
+              <xs:element name="MiddleName" msprop:Generator_ColumnVarNameInTable="columnMiddleName" msprop:Generator_ColumnPropNameInRow="MiddleName" msprop:Generator_ColumnPropNameInTable="MiddleNameColumn" msprop:Generator_UserColumnName="MiddleName" type="xs:string" minOccurs="0" />
+              <xs:element name="MostFrequentNarration" msprop:Generator_ColumnVarNameInTable="columnMostFrequentNarration" msprop:Generator_ColumnPropNameInRow="MostFrequentNarration" msprop:Generator_ColumnPropNameInTable="MostFrequentNarrationColumn" msprop:Generator_UserColumnName="MostFrequentNarration" type="xs:string" minOccurs="0" />
+              <xs:element name="MostFrequentTransactionDate" msprop:Generator_ColumnVarNameInTable="columnMostFrequentTransactionDate" msprop:Generator_ColumnPropNameInRow="MostFrequentTransactionDate" msprop:Generator_ColumnPropNameInTable="MostFrequentTransactionDateColumn" msprop:Generator_UserColumnName="MostFrequentTransactionDate" type="xs:string" minOccurs="0" />
+              <xs:element name="Src" msprop:Generator_ColumnVarNameInTable="columnSrc" msprop:Generator_ColumnPropNameInRow="Src" msprop:Generator_ColumnPropNameInTable="SrcColumn" msprop:Generator_UserColumnName="Src" type="xs:string" minOccurs="0" />
+              <xs:element name="InsertedDate" msprop:Generator_ColumnVarNameInTable="columnInsertedDate" msprop:Generator_ColumnPropNameInRow="InsertedDate" msprop:Generator_ColumnPropNameInTable="InsertedDateColumn" msprop:Generator_UserColumnName="InsertedDate" type="xs:string" minOccurs="0" />
+              <xs:element name="IsValidBvn" msprop:Generator_ColumnVarNameInTable="columnIsValidBvn" msprop:Generator_ColumnPropNameInRow="IsValidBvn" msprop:Generator_ColumnPropNameInTable="IsValidBvnColumn" msprop:Generator_UserColumnName="IsValidBvn" type="xs:string" minOccurs="0" />
+              <xs:element name="BvnCheckDate" msprop:Generator_ColumnVarNameInTable="columnBvnCheckDate" msprop:Generator_ColumnPropNameInRow="BvnCheckDate" msprop:Generator_ColumnPropNameInTable="BvnCheckDateColumn" msprop:Generator_UserColumnName="BvnCheckDate" type="xs:string" minOccurs="0" />
+              <xs:element name="IsValidCRMS" msprop:Generator_ColumnVarNameInTable="columnIsValidCRMS" msprop:Generator_ColumnPropNameInRow="IsValidCRMS" msprop:Generator_ColumnPropNameInTable="IsValidCRMSColumn" msprop:Generator_UserColumnName="IsValidCRMS" type="xs:string" minOccurs="0" />
+              <xs:element name="CRMSCheckDate" msprop:Generator_ColumnVarNameInTable="columnCRMSCheckDate" msprop:Generator_ColumnPropNameInRow="CRMSCheckDate" msprop:Generator_ColumnPropNameInTable="CRMSCheckDateColumn" msprop:Generator_UserColumnName="CRMSCheckDate" type="xs:string" minOccurs="0" />
+              <xs:element name="IsValidCRC" msprop:Generator_ColumnVarNameInTable="columnIsValidCRC" msprop:Generator_ColumnPropNameInRow="IsValidCRC" msprop:Generator_ColumnPropNameInTable="IsValidCRCColumn" msprop:Generator_UserColumnName="IsValidCRC" type="xs:string" minOccurs="0" />
+              <xs:element name="CRCCheckDate" msprop:Generator_ColumnVarNameInTable="columnCRCCheckDate" msprop:Generator_ColumnPropNameInRow="CRCCheckDate" msprop:Generator_ColumnPropNameInTable="CRCCheckDateColumn" msprop:Generator_UserColumnName="CRCCheckDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

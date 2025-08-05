@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Views/Shared/_CustomerDetails.cshtml" hash="6403310e" filehash="ffffbea4a6a88c6c" flags="110000" assembly="App_Web_i1zvnvnx" type="ASP._Page_Views_Shared__CustomerDetails_cshtml">
+    <filedeps>
+        <filedep name="/Views/Shared/_CustomerDetails.cshtml" />
+    </filedeps>
+</preserve>

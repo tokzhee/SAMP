@@ -1,0 +1,30 @@
+﻿@model App.Web.Models.UserModel
+
+<div class="form-group" id="divUsername">
+    <label for="">
+        Username
+    </label>
+    @Html.TextBoxFor(model => model.Username, new { @class = "form-control input-sm", id = "Username", placeholder = "Username here . . ." })
+</div>
+<div class="form-group" id="divBranchUser">
+    <label for="">
+        Branch User? <small><i>Tick if user is a branch staff</i></small>
+    </label>
+    <br />
+    @Html.CheckBoxFor(model => model.IsBranchUser)
+</div>
+<div class="form-group" id="divRole">
+    <label for="">
+        Role
+    </label>
+    @Html.DropDownListFor(model => model.RoleId, Model.RoleSelectListItems, new { @class = "form-control input-sm" })
+</div>
+<div class="form-group" id="divAccountStatus">
+    <label for="">
+        Account Status
+    </label>
+    @Html.DropDownListFor(model => model.AccountStatusId, Model.AccountStatusSelectListItems, new { @class = "form-control input-sm" })
+</div>
+<div class="form-group" id="divQueryString">
+    @Html.HiddenFor(model => model.UrlQueryString)
+</div>

@@ -1,0 +1,16 @@
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\SalaryAccountManagementPortal\src\App.DataModels\bin\Debug\Properties\AssemblyInfo.cs
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\SalaryAccountManagementPortal\src\App.DataModels\bin\Debug\App.DataModels.dll.config
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\SalaryAccountManagementPortal\src\App.DataModels\bin\Debug\App.DataModels.dll
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\SalaryAccountManagementPortal\src\App.DataModels\bin\Debug\App.DataModels.pdb
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\SalaryAccountManagementPortal\src\App.DataModels\obj\Debug\App.DataModels.csproj.AssemblyReference.cache
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\SalaryAccountManagementPortal\src\App.DataModels\obj\Debug\App.DataModels.csproj.CoreCompileInputs.cache
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\SalaryAccountManagementPortal\src\App.DataModels\obj\Debug\App.DataModels.dll
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\SalaryAccountManagementPortal\src\App.DataModels\obj\Debug\App.DataModels.pdb
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\salary-account-management-portal\src\App.DataModels\bin\Debug\Properties\AssemblyInfo.cs
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\salary-account-management-portal\src\App.DataModels\bin\Debug\App.DataModels.dll.config
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\salary-account-management-portal\src\App.DataModels\bin\Debug\App.DataModels.dll
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\salary-account-management-portal\src\App.DataModels\bin\Debug\App.DataModels.pdb
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\salary-account-management-portal\src\App.DataModels\obj\Debug\App.DataModels.csproj.AssemblyReference.cache
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\salary-account-management-portal\src\App.DataModels\obj\Debug\App.DataModels.csproj.CoreCompileInputs.cache
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\salary-account-management-portal\src\App.DataModels\obj\Debug\App.DataModels.dll
+C:\Users\ChisomOnu\Documents\Visual Studio 2019\Projects\salary-account-management-portal\src\App.DataModels\obj\Debug\App.DataModels.pdb

@@ -1,0 +1,29 @@
+﻿@model App.Web.Models.PersonModel
+
+<div class="form-group">
+    <label for="">
+        Surname
+    </label>
+    @Html.TextBoxFor(model => model.Surname, new { @class = "form-control input-sm", placeholder = "Type surname here . . ." })
+</div>
+<div class="form-group">
+    <label for="">
+        Firstname
+    </label>
+    @Html.TextBoxFor(model => model.Firstname, new { @class = "form-control input-sm", placeholder = "Type firstname here . . ." })
+</div>
+<div class="form-group">
+    <label for="">
+        Middlename
+    </label>
+    @Html.TextBoxFor(model => model.Middlename, new { @class = "form-control input-sm", placeholder = "Type middlename here . . ." })
+</div>
+<div class="form-group" id="divEmailAddress">
+    <label for="">
+        Email Address
+    </label>
+    @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control input-sm", placeholder = "Type email address here . . ." })
+</div>
+<div class="form-group" id="divQueryString">
+    @Html.HiddenFor(model => model.UrlQueryString)
+</div>

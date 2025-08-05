@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://172.16.249.199/EntrustWrapper/AuthWrapper.svc?xsd=xsd1" filename="AuthWrapper.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://172.16.249.199/EntrustWrapper/AuthWrapper.svc?xsd=xsd0" filename="AuthWrapper0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://172.16.249.199/EntrustWrapper/AuthWrapper.svc?xsd=xsd3" filename="AuthWrapper1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://172.16.249.199/EntrustWrapper/AuthWrapper.svc?xsd=xsd2" filename="AuthWrapper2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://172.16.249.199/EntrustWrapper/AuthWrapper.svc?wsdl" filename="AuthWrapper.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://172.16.249.199/EntrustWrapper/AuthWrapper.svc?disco" filename="AuthWrapper.disco" />
+  </Results>
+</DiscoveryClientResultsFile>

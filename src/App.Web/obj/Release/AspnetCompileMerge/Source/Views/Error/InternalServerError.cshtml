@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Salary Account Management Portal :: Internal Server Error</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="@Url.Content("~/Assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/vendors/iconfonts/simple-line-icon/css/simple-line-icons.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/vendors/css/vendor.bundle.base.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/vendors/css/vendor.bundle.addons.css")">
+
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/style.css")">
+    @*<link rel="shortcut icon" href="@Url.Content("~/Assets/images/favicon.png")" />*@
+
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Assets/images/apple-touch-icon.png")">
+    <link rel="icon" type="image/png" sizes="32x32" href="@Url.Content("~/Assets/images/favicon-32x32.png")">
+    <link rel="icon" type="image/png" sizes="16x16" href="@Url.Content("~/Assets/images/favicon-16x16.png")">
+    <link rel="manifest" href="@Url.Content("~/Assets/images/site.webmanifest")">
+</head>
+
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center text-center error-page bg-info">
+                <div class="row flex-grow">
+                    <div class="col-lg-7 mx-auto text-white">
+                        <div class="row align-items-center d-flex flex-row">
+                            <div class="col-lg-6 text-lg-right pr-lg-4">
+                                <h1 class="display-1 mb-0">500</h1>
+                            </div>
+                            <div class="col-lg-6 error-page-divider text-lg-left pl-lg-4">
+                                <h2>SORRY!</h2>
+                                <h3 class="font-weight-light">Internal server error!</h3>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-12 text-center mt-xl-2">
+                                <a class="text-white font-weight-medium" href="@Url.Action("Login","Account")">Back to Home</a>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-12 mt-xl-2">
+                                <p class="text-white font-weight-medium text-center">
+                                    Copyright © @DateTime.Now.Year
+                                    <a href="https://www.firstbanknigeria.com/" target="_blank" rel="external">First Bank of Nigeria Ltd</a>. All Rights Reserved | An FBN Holdings Company | Powered by <a href="https://verstlelabs.com/" target="_blank" rel="external">Verstle Labs</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- plugins:js -->
+    <script src="@Url.Content("~/Assets/vendors/js/vendor.bundle.base.js")"></script>
+    <script src="@Url.Content("~/Assets/vendors/js/vendor.bundle.addons.js")"></script>
+
+    <script src="@Url.Content("~/Assets/js/off-canvas.js")"></script>
+    <script src="@Url.Content("~/Assets/js/hoverable-collapse.js")"></script>
+    <script src="@Url.Content("~/Assets/js/misc.js")"></script>
+    <script src="@Url.Content("~/Assets/js/settings.js")"></script>
+    <script src="@Url.Content("~/Assets/js/todolist.js")"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{472112FC-9B7C-4B62-BC69-C096ED292E08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>App.Core</RootNamespace>
+    <AssemblyName>App.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Excel">
+      <HintPath>..\..\DigitalLendingPlatform\LMS-Portal.UI.Core\bin\Debug\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.14\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.21.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.21.6.1\lib\net462\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=108.0.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.108.0.1\lib\netstandard2.0\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.4\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\DigitalLendingPlatform\LMS-Portal.UI.Core\bin\Debug\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLogic\ActiveDirectoryManager.cs" />
+    <Compile Include="BusinessLogic\BypassManager.cs" />
+    <Compile Include="BusinessLogic\CRCManager.cs" />
+    <Compile Include="BusinessLogic\CRMSManager.cs" />
+    <Compile Include="BusinessLogic\DropdownManager.cs" />
+    <Compile Include="BusinessLogic\EmailLogManager.cs" />
+    <Compile Include="BusinessLogic\EmailManager.cs" />
+    <Compile Include="BusinessLogic\EnumsManager.cs" />
+    <Compile Include="BusinessLogic\FIBridgeManager.cs" />
+    <Compile Include="BusinessLogic\IpAddressManager.cs" />
+    <Compile Include="BusinessLogic\MacAddressManager.cs" />
+    <Compile Include="BusinessLogic\NIBSSBvnValidatorManager.cs" />
+    <Compile Include="BusinessLogic\RequestResponseEntryManager.cs" />
+    <Compile Include="BusinessLogic\TokenManager.cs" />
+    <Compile Include="DataTransferObjects\CRMSCredit.cs" />
+    <Compile Include="DataTransferObjects\CRMSCreditCheckResponse.cs" />
+    <Compile Include="DataTransferObjects\CRMSValidateBvnResponse.cs" />
+    <Compile Include="DataTransferObjects\CustomerAccount.cs" />
+    <Compile Include="DataTransferObjects\GetAccountDetailsRequest.cs" />
+    <Compile Include="DataTransferObjects\GetAccountDetailsResponse.cs" />
+    <Compile Include="DataTransferObjects\GetAccountNameRequest.cs" />
+    <Compile Include="DataTransferObjects\GetAccountNameResponse.cs" />
+    <Compile Include="DataTransferObjects\GetAccountRelationshipManagerRequest.cs" />
+    <Compile Include="DataTransferObjects\GetAccountRelationshipManagerResponse.cs" />
+    <Compile Include="DataTransferObjects\GetBvnWithAccountNumberRequest.cs" />
+    <Compile Include="DataTransferObjects\GetBvnWithAccountNumberResponse.cs" />
+    <Compile Include="DataTransferObjects\GetCustomerAccountsRequest.cs" />
+    <Compile Include="DataTransferObjects\GetCustomerAccountsResponse.cs" />
+    <Compile Include="DataTransferObjects\GetCustomerDetailsRequest.cs" />
+    <Compile Include="DataTransferObjects\GetCustomerDetailsResponse.cs" />
+    <Compile Include="DataTransferObjects\CRCCreditCheckResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AppActivityService.cs" />
+    <Compile Include="Services\EmailLogService.cs" />
+    <Compile Include="Services\EmployerService.cs" />
+    <Compile Include="Services\FinacleServices.cs" />
+    <Compile Include="Services\FintechContactPersonService.cs" />
+    <Compile Include="Services\FintechFeeOperationLogService.cs" />
+    <Compile Include="Services\FintechOnBoardingDocumentsService.cs" />
+    <Compile Include="Services\FintechService.cs" />
+    <Compile Include="Services\ForgotPasswordLogService.cs" />
+    <Compile Include="Services\MakerCheckerLogService.cs" />
+    <Compile Include="Services\MenuService.cs" />
+    <Compile Include="Services\OnboardingDocumentsService.cs" />
+    <Compile Include="Services\PasswordChangeLogService.cs" />
+    <Compile Include="Services\PersonService.cs" />
+    <Compile Include="Services\PersonTypeService.cs" />
+    <Compile Include="Services\RoleService.cs" />
+    <Compile Include="Services\SalaryAccountsEmployersService.cs" />
+    <Compile Include="Services\SalaryAccountsRacProfilingService.cs" />
+    <Compile Include="Services\SalaryAccountsService.cs" />
+    <Compile Include="Services\SalaryPaymentHistoryService.cs" />
+    <Compile Include="Services\TransactionReportService.cs" />
+    <Compile Include="Services\UserAccessActivityService.cs" />
+    <Compile Include="Services\UserAccountAuthenticationTypeService.cs" />
+    <Compile Include="Services\UserAccountStatusService.cs" />
+    <Compile Include="Services\UsersService.cs" />
+    <Compile Include="Utilities\ConfigurationUtility.cs" />
+    <Compile Include="Utilities\EncryptionUtility.cs" />
+    <Compile Include="Utilities\ExcelUploadUtility.cs" />
+    <Compile Include="Utilities\FileUploadUtility.cs" />
+    <Compile Include="Utilities\LogUtility.cs" />
+    <Compile Include="Utilities\ValidationUtility.cs" />
+    <Compile Include="Utilities\XmlSerializerUtility.cs" />
+    <Compile Include="Web References\AdServiceClient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\BvnValidatorServiceClient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CreditBureauServiceClient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CRMSServiceClient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EntrustServiceClient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Oracle.ManagedDataAccess.Client.Configuration.Section.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AdServiceClient\AdWsdl.wsdl" />
+    <None Include="Web References\AdServiceClient\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BvnValidatorServiceClient\BVNEnquiryResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BvnValidatorServiceClient\BVNEnquiryResponse2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BvnValidatorServiceClient\LinkBVNResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BvnValidatorServiceClient\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BvnValidatorServiceClient\Service.wsdl" />
+    <None Include="Web References\BvnValidatorServiceClient\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\BvnValidatorServiceClient\Service0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\BvnValidatorServiceClient\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\BvnValidatorServiceClient\UpdateBVNResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BvnValidatorServiceClient\ValidatorResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CreditBureauServiceClient\FirstCentralNigeriaWebService.wsdl" />
+    <None Include="Web References\CreditBureauServiceClient\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CRMSServiceClient\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CRMSServiceClient\ReturnSubmissionWSEJBBeanService.wsdl" />
+    <None Include="Web References\EntrustServiceClient\AuthResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EntrustServiceClient\AuthWrapper.wsdl" />
+    <None Include="Web References\EntrustServiceClient\AuthWrapper.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\EntrustServiceClient\AuthWrapper0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\EntrustServiceClient\AuthWrapper1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\EntrustServiceClient\AuthWrapper2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\EntrustServiceClient\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EntrustServiceClient\ResponseModel.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EntrustServiceClient\SerialNoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EntrustServiceClient\UnlockClearQAResponseModel.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EntrustServiceClient\UserCheckResponseModel.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dependencies\Excel.dll" />
+    <None Include="Web References\CreditBureauServiceClient\FirstCentralNigeriaWebService.disco" />
+    <None Include="Web References\EntrustServiceClient\AuthWrapper.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="C:\AdWsdl.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AdServiceClient\</RelPath>
+      <UpdateFromURL>C:\AdWsdl.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>App_Core_AdServiceClient_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\Users\ChisomOnu\Documents\crms.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CRMSServiceClient\</RelPath>
+      <UpdateFromURL>C:\Users\ChisomOnu\Documents\crms.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>App_Core_CRMSServiceClient_ReturnSubmissionWSEJBBeanService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://172.16.249.199/EntrustWrapper/AuthWrapper.svc">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EntrustServiceClient\</RelPath>
+      <UpdateFromURL>http://172.16.249.199/EntrustWrapper/AuthWrapper.svc</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>App_Core_EntrustServiceClient_AuthWrapper</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://nibbs-bvn-validator-dev.fbn-devops-dev-asenv.appserviceenvironment.net/Service.svc%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\BvnValidatorServiceClient\</RelPath>
+      <UpdateFromURL>https://nibbs-bvn-validator-dev.fbn-devops-dev-asenv.appserviceenvironment.net/Service.svc%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>App_Core_BvnValidatorServiceClient_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://online.firstcentralcreditbureau.com/firstcentralnigeriawebservice/FirstCentralNigeriaWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CreditBureauServiceClient\</RelPath>
+      <UpdateFromURL>https://online.firstcentralcreditbureau.com/firstcentralnigeriawebservice/FirstCentralNigeriaWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>App_Core_CreditBureauServiceClient_FirstCentralNigeriaWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App.Database\App.Database.csproj">
+      <Project>{42a934f6-0b0e-4d1c-a504-f343386da115}</Project>
+      <Name>App.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.DataModels\App.DataModels.csproj">
+      <Project>{ebea4dc1-f521-4b38-850a-0da9c7f85237}</Project>
+      <Name>App.DataModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets'))" />
+  </Target>
+</Project>

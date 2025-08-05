@@ -1,0 +1,160 @@
+﻿@model App.Web.ViewModels.CreateFintechProfileViewModel
+
+@{
+    ViewBag.Title = "Create New Fintech Profile";
+}
+
+<div class="row mb-4">
+    <div class="col-12 d-flex align-items-center justify-content-between">
+        <h4 class="page-title">
+            Create Fintech Profile
+        </h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                @if (TempData["Alert"] != null)
+                {
+                    @Html.Partial("_Alert", TempData["Alert"])
+                }
+
+                <form class="forms-sample" action="@Url.Action("CreateNewFintechProfile")" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.Partial("_Fintech", Model.FintechModel)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            @if (Model.FintechOnBoardingDocumentsModels != null && Model.FintechOnBoardingDocumentsModels.Count > 0)
+                            {
+                                @Html.Partial("_FintechOnBoardingDocument", Model.FintechOnBoardingDocumentsModels)
+                            }
+                        </div>
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-success btn-xs mr-2">
+                        <i class="mdi mdi-file-document"></i>
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section customScripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#divRelationshipManagerSurname").hide();
+            $("#divRelationshipManagerFirstname").hide();
+            $("#divRelationshipManagerMiddlename").hide();
+            $("#divRelationshipManagerMobileNumber").hide();
+            $("#divRelationshipManagerEmailAddress").hide();
+            $("#divRelationshipManagerSolId").hide();
+            $("#divRelationshipManagerSolName").hide();
+            $("#divRelationshipManagerSolAddress").hide();
+            $("#divAccountName").hide();
+            $("#divQueryString").hide();
+
+            $('#RelationshipManagerStaffId').on('keyup', function () {
+                var relationshipManagerStaffId = $(this).val();
+                if (relationshipManagerStaffId.length >= 8) {
+                    getRelationshipManagerDetails(relationshipManagerStaffId);
+                }
+            })
+            $('#AccountNumber').on('keyup', function () {
+                var accountNumber = $(this).val();
+                if (accountNumber.length >= 10) {
+                    getAccountName(accountNumber);
+                }
+            })
+        });
+        function addRow() {
+            $("#fintechContactPerson tbody").append($("#fintechContactPerson tbody tr:last").clone());
+            $("#fintechContactPerson tr").each(function (i) {
+                if (i === 1) {
+                    return;
+                }
+                var surnameInput = $(this).find("input[name*='Surname']");
+                var firstnameInput = $(this).find("input[name*='Firstname']");
+                var middlenameInput = $(this).find("input[name*='Middlename']");
+                var mobileNumberInput = $(this).find("input[name*='MobileNumber']");
+                var emailAddressInput = $(this).find("input[name*='EmailAddress']");
+
+                surnameInput.eq(0).attr("name", "[" + (i - 1) + "].Surname");
+                firstnameInput.eq(0).attr("name", "[" + (i - 1) + "].Firstname");
+                middlenameInput.eq(0).attr("name", "[" + (i - 1) + "].Middlename");
+                mobileNumberInput.eq(0).attr("name", "[" + (i - 1) + "].MobileNumber");
+                emailAddressInput.eq(0).attr("name", "[" + (i - 1) + "].EmailAddress");
+            });
+        }
+        function removeRow() {
+            var rowLength = $("#fintechContactPerson tr").length;
+            if (rowLength > 2) {
+                $("#fintechContactPerson tr:last").remove();
+            }
+        }
+        function getRelationshipManagerDetails(rmStaffId) {
+            $.ajax({
+                url: "@Url.Action("GetStaffDetails", "Base")",
+                data: { staffId: rmStaffId },
+                type: "GET",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                beforeSend: function () {
+                    $("#loading-spinner").show();
+                },
+                success: function (response) {
+                    console.log(response);
+                    var result = JSON.parse(response);
+                    if (result.ResponseCode == "00") {
+                        var rmSurname = result.StaffSurname;
+                        var rmFirstname = result.StaffFirstname;
+                        var rmMiddlename = result.StaffMiddlename;
+                        var rmFullname = rmSurname + ", " + rmFirstname + " " + rmMiddlename;
+                        var rmEmailAddress = result.StaffEmailAddress;
+                        var rmSolId = result.StaffSolId;
+                        var rmSolName = result.StaffSolName;
+                        var rmSolAddress = result.StaffSolAddress;
+
+                        $("#RelationshipManagerSurname").val("");
+                        $("#RelationshipManagerFirstname").val("");
+                        $("#RelationshipManagerMiddlename").val("");
+                        $("#RelationshipManagerEmailAddress").val("");
+                        $("#RelationshipManagerSolId").val("");
+                        $("#RelationshipManagerSolName").val("");
+                        $("#RelationshipManagerSolAddress").val("");
+
+                        $("#RelationshipManagerSurname").val(rmSurname);
+                        $("#RelationshipManagerFirstname").val(rmFirstname);
+                        $("#RelationshipManagerMiddlename").val(rmMiddlename);
+                        $("#RelationshipManagerEmailAddress").val(rmEmailAddress);
+                        $("#RelationshipManagerSolId").val(rmSolId);
+                        $("#RelationshipManagerSolName").val(rmSolName);
+                        $("#RelationshipManagerSolAddress").val(rmSolAddress);
+                        sweetAlert("Relationship Manager Details fetched Successfully", "Fullname: " + rmFullname + "\nEmail Address: " + rmEmailAddress + "\nSOL ID: " + rmSolId + "\nSOL Name: " + rmSolName + "\nSOL Address: " + rmSolAddress, "success");
+                    }
+                    else {
+                        sweetAlert("Failed to fetch Relationship Mananger Details", result.ResponseDescription, "error");
+                    }
+                },
+                complete: function () {
+                    $("#loading-spinner").hide();
+                },
+                error: function (error) {
+                    alert(error.responseText);
+                }
+            });
+        }
+        
+    </script>
+}

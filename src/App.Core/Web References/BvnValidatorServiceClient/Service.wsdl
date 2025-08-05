@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://nibbs-bvn-validator-dev.fbn-devops-dev-asenv.appserviceenvironment.net/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://nibbs-bvn-validator-dev.fbn-devops-dev-asenv.appserviceenvironment.net/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://nibbs-bvn-validator-dev.fbn-devops-dev-asenv.appserviceenvironment.net/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_BVNEnquiry_InputMessage">
+    <wsdl:part name="parameters" element="tns:BVNEnquiry" />
+  </wsdl:message>
+  <wsdl:message name="IService_BVNEnquiry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BVNEnquiryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BVNEnquiry2_InputMessage">
+    <wsdl:part name="parameters" element="tns:BVNEnquiry2" />
+  </wsdl:message>
+  <wsdl:message name="IService_BVNEnquiry2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BVNEnquiry2Response" />
+  </wsdl:message>
+  <wsdl:message name="IService_ValidateBVN_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateBVN" />
+  </wsdl:message>
+  <wsdl:message name="IService_ValidateBVN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateBVNResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ValidateBVNWithAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateBVNWithAccount" />
+  </wsdl:message>
+  <wsdl:message name="IService_ValidateBVNWithAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateBVNWithAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LinkBVNWithAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:LinkBVNWithAccount" />
+  </wsdl:message>
+  <wsdl:message name="IService_LinkBVNWithAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LinkBVNWithAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LinkBVNWithAccountiBPS_InputMessage">
+    <wsdl:part name="parameters" element="tns:LinkBVNWithAccountiBPS" />
+  </wsdl:message>
+  <wsdl:message name="IService_LinkBVNWithAccountiBPS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LinkBVNWithAccountiBPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LinkBVNWithCustID_InputMessage">
+    <wsdl:part name="parameters" element="tns:LinkBVNWithCustID" />
+  </wsdl:message>
+  <wsdl:message name="IService_LinkBVNWithCustID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LinkBVNWithCustIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AutoLinkBVNWithAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoLinkBVNWithAccount" />
+  </wsdl:message>
+  <wsdl:message name="IService_AutoLinkBVNWithAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoLinkBVNWithAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateBVN_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBVN" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateBVN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBVNResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="BVNEnquiry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BVNEnquiry" message="tns:IService_BVNEnquiry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BVNEnquiryResponse" message="tns:IService_BVNEnquiry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BVNEnquiry2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BVNEnquiry2" message="tns:IService_BVNEnquiry2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BVNEnquiry2Response" message="tns:IService_BVNEnquiry2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateBVN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ValidateBVN" message="tns:IService_ValidateBVN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ValidateBVNResponse" message="tns:IService_ValidateBVN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateBVNWithAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ValidateBVNWithAccount" message="tns:IService_ValidateBVNWithAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ValidateBVNWithAccountResponse" message="tns:IService_ValidateBVNWithAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LinkBVNWithAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LinkBVNWithAccount" message="tns:IService_LinkBVNWithAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LinkBVNWithAccountResponse" message="tns:IService_LinkBVNWithAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LinkBVNWithAccountiBPS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LinkBVNWithAccountiBPS" message="tns:IService_LinkBVNWithAccountiBPS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LinkBVNWithAccountiBPSResponse" message="tns:IService_LinkBVNWithAccountiBPS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LinkBVNWithCustID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LinkBVNWithCustID" message="tns:IService_LinkBVNWithCustID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LinkBVNWithCustIDResponse" message="tns:IService_LinkBVNWithCustID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoLinkBVNWithAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AutoLinkBVNWithAccount" message="tns:IService_AutoLinkBVNWithAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AutoLinkBVNWithAccountResponse" message="tns:IService_AutoLinkBVNWithAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBVN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateBVN" message="tns:IService_UpdateBVN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateBVNResponse" message="tns:IService_UpdateBVN_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BVNEnquiry">
+      <soap:operation soapAction="http://tempuri.org/IService/BVNEnquiry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BVNEnquiry2">
+      <soap:operation soapAction="http://tempuri.org/IService/BVNEnquiry2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateBVN">
+      <soap:operation soapAction="http://tempuri.org/IService/ValidateBVN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateBVNWithAccount">
+      <soap:operation soapAction="http://tempuri.org/IService/ValidateBVNWithAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkBVNWithAccount">
+      <soap:operation soapAction="http://tempuri.org/IService/LinkBVNWithAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkBVNWithAccountiBPS">
+      <soap:operation soapAction="http://tempuri.org/IService/LinkBVNWithAccountiBPS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkBVNWithCustID">
+      <soap:operation soapAction="http://tempuri.org/IService/LinkBVNWithCustID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoLinkBVNWithAccount">
+      <soap:operation soapAction="http://tempuri.org/IService/AutoLinkBVNWithAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBVN">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateBVN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IService" type="tns:IService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BVNEnquiry">
+      <soap:operation soapAction="http://tempuri.org/IService/BVNEnquiry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BVNEnquiry2">
+      <soap:operation soapAction="http://tempuri.org/IService/BVNEnquiry2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateBVN">
+      <soap:operation soapAction="http://tempuri.org/IService/ValidateBVN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateBVNWithAccount">
+      <soap:operation soapAction="http://tempuri.org/IService/ValidateBVNWithAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkBVNWithAccount">
+      <soap:operation soapAction="http://tempuri.org/IService/LinkBVNWithAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkBVNWithAccountiBPS">
+      <soap:operation soapAction="http://tempuri.org/IService/LinkBVNWithAccountiBPS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkBVNWithCustID">
+      <soap:operation soapAction="http://tempuri.org/IService/LinkBVNWithCustID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoLinkBVNWithAccount">
+      <soap:operation soapAction="http://tempuri.org/IService/AutoLinkBVNWithAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBVN">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateBVN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://nibbs-bvn-validator-dev.fbn-devops-dev-asenv.appserviceenvironment.net/Service.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IService" binding="tns:BasicHttpsBinding_IService">
+      <soap:address location="https://nibbs-bvn-validator-dev.fbn-devops-dev-asenv.appserviceenvironment.net/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

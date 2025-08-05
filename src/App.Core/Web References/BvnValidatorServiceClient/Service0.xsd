@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="BVNEnquiryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BVNNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:Response" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BVNEnquiryResponse" nillable="true" type="tns:BVNEnquiryResponse" />
+  <xs:complexType name="Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Response" nillable="true" type="tns:Response" />
+  <xs:complexType name="BVNEnquiryResponse2">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BVNList" nillable="true" type="tns:ArrayOfBVNAccountName" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:Response" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BVNEnquiryResponse2" nillable="true" type="tns:BVNEnquiryResponse2" />
+  <xs:complexType name="ArrayOfBVNAccountName">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BVNAccountName" nillable="true" type="tns:BVNAccountName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBVNAccountName" nillable="true" type="tns:ArrayOfBVNAccountName" />
+  <xs:complexType name="BVNAccountName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BVNNo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BVNAccountName" nillable="true" type="tns:BVNAccountName" />
+  <xs:complexType name="ValidatorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:NIBSSResponse" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:Response" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidatorResponse" nillable="true" type="tns:ValidatorResponse" />
+  <xs:complexType name="NIBSSResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BVN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LevelOfAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LgaOfOrigin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LgaOfResidence" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaritalStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameOnCard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResidentialAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateOfOrigin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateOfResidence" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NIBSSResponse" nillable="true" type="tns:NIBSSResponse" />
+  <xs:complexType name="LinkRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BVN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LinkRequest" nillable="true" type="tns:LinkRequest" />
+  <xs:complexType name="LinkBVNResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CifID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Response" nillable="true" type="tns:Response" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LinkBVNResponse" nillable="true" type="tns:LinkBVNResponse" />
+  <xs:complexType name="LinkRequestiBPS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BVN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LinkRequestiBPS" nillable="true" type="tns:LinkRequestiBPS" />
+  <xs:complexType name="LinkRequestCustID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BVN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CifID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LinkRequestCustID" nillable="true" type="tns:LinkRequestCustID" />
+  <xs:complexType name="ArrayOfLinkBVNResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LinkBVNResponse" nillable="true" type="tns:LinkBVNResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLinkBVNResponse" nillable="true" type="tns:ArrayOfLinkBVNResponse" />
+  <xs:complexType name="AutoLinkRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BVN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AutoLinkRequest" nillable="true" type="tns:AutoLinkRequest" />
+  <xs:complexType name="UpdateRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BVN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateofBirth" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateRequest" nillable="true" type="tns:UpdateRequest" />
+  <xs:complexType name="UpdateBVNResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BVN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Response" nillable="true" type="tns:Response" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateBVNResponse" nillable="true" type="tns:UpdateBVNResponse" />
+</xs:schema>

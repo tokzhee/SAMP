@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://services.model.crms.cbn.gov.ng/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ReturnSubmissionWSEJBBeanService" targetNamespace="http://services.model.crms.cbn.gov.ng/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns:ns0="http://services.model.crms.cbn.gov.ng/" targetNamespace="http://services.model.crms.cbn.gov.ng/">
+      <xsd:complexType name="confirmReturn">
+        <xsd:sequence>
+          <xsd:element name="username" type="xsd:string" />
+          <xsd:element name="password" type="xsd:string" />
+          <xsd:element name="returnname" type="xsd:string" />
+          <xsd:element name="returnxml" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="confirmReturnResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="confirmreturn" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="creditCheck">
+        <xsd:sequence>
+          <xsd:element name="uniqueid" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="creditCheckResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="creditCheck" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="creditCheckSummary">
+        <xsd:sequence>
+          <xsd:element name="uniqueid" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="creditCheckSummaryResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="creditCheckSummary" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="submitReturn">
+        <xsd:sequence>
+          <xsd:element name="username" type="xsd:string" />
+          <xsd:element name="password" type="xsd:string" />
+          <xsd:element name="returnname" type="xsd:string" />
+          <xsd:element name="returnxml" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="submitReturnResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="submitreturn" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="validateBVN">
+        <xsd:sequence>
+          <xsd:element name="bvn" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="validateBVNResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="validatebvn" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="validateTIN">
+        <xsd:sequence>
+          <xsd:element name="tin" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="validateTINRecord">
+        <xsd:sequence>
+          <xsd:element name="tin" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="validateTINRecordResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="validatetinrecord" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="validateTINResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="validatetin" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="confirmReturn" type="ns0:confirmReturn" />
+      <xsd:element name="confirmReturnResponse" type="ns0:confirmReturnResponse" />
+      <xsd:element name="creditCheck" type="ns0:creditCheck" />
+      <xsd:element name="creditCheckResponse" type="ns0:creditCheckResponse" />
+      <xsd:element name="creditCheckSummary" type="ns0:creditCheckSummary" />
+      <xsd:element name="creditCheckSummaryResponse" type="ns0:creditCheckSummaryResponse" />
+      <xsd:element name="submitReturn" type="ns0:submitReturn" />
+      <xsd:element name="submitReturnResponse" type="ns0:submitReturnResponse" />
+      <xsd:element name="validateBVN" type="ns0:validateBVN" />
+      <xsd:element name="validateBVNResponse" type="ns0:validateBVNResponse" />
+      <xsd:element name="validateTIN" type="ns0:validateTIN" />
+      <xsd:element name="validateTINRecord" type="ns0:validateTINRecord" />
+      <xsd:element name="validateTINRecordResponse" type="ns0:validateTINRecordResponse" />
+      <xsd:element name="validateTINResponse" type="ns0:validateTINResponse" />
+    </xsd:schema>
+  </types>
+  <message name="validateBVN">
+    <part name="parameters" element="tns:validateBVN" />
+  </message>
+  <message name="validateBVNResponse">
+    <part name="parameters" element="tns:validateBVNResponse" />
+  </message>
+  <message name="validateTIN">
+    <part name="parameters" element="tns:validateTIN" />
+  </message>
+  <message name="validateTINResponse">
+    <part name="parameters" element="tns:validateTINResponse" />
+  </message>
+  <message name="validateTINRecord">
+    <part name="parameters" element="tns:validateTINRecord" />
+  </message>
+  <message name="validateTINRecordResponse">
+    <part name="parameters" element="tns:validateTINRecordResponse" />
+  </message>
+  <message name="creditCheck">
+    <part name="parameters" element="tns:creditCheck" />
+  </message>
+  <message name="creditCheckResponse">
+    <part name="parameters" element="tns:creditCheckResponse" />
+  </message>
+  <message name="creditCheckSummary">
+    <part name="parameters" element="tns:creditCheckSummary" />
+  </message>
+  <message name="creditCheckSummaryResponse">
+    <part name="parameters" element="tns:creditCheckSummaryResponse" />
+  </message>
+  <message name="submitReturn">
+    <part name="parameters" element="tns:submitReturn" />
+  </message>
+  <message name="submitReturnResponse">
+    <part name="parameters" element="tns:submitReturnResponse" />
+  </message>
+  <message name="confirmReturn">
+    <part name="parameters" element="tns:confirmReturn" />
+  </message>
+  <message name="confirmReturnResponse">
+    <part name="parameters" element="tns:confirmReturnResponse" />
+  </message>
+  <portType name="ReturnSubmissionWSEJBBean">
+    <operation name="validateBVN">
+      <input wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/validateBVNRequest" message="tns:validateBVN" />
+      <output wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/validateBVNResponse" message="tns:validateBVNResponse" />
+    </operation>
+    <operation name="validateTIN">
+      <input wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/validateTINRequest" message="tns:validateTIN" />
+      <output wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/validateTINResponse" message="tns:validateTINResponse" />
+    </operation>
+    <operation name="validateTINRecord">
+      <input wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/validateTINRecordRequest" message="tns:validateTINRecord" />
+      <output wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/validateTINRecordResponse" message="tns:validateTINRecordResponse" />
+    </operation>
+    <operation name="creditCheck">
+      <input wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/creditCheckRequest" message="tns:creditCheck" />
+      <output wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/creditCheckResponse" message="tns:creditCheckResponse" />
+    </operation>
+    <operation name="creditCheckSummary">
+      <input wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/creditCheckSummaryRequest" message="tns:creditCheckSummary" />
+      <output wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/creditCheckSummaryResponse" message="tns:creditCheckSummaryResponse" />
+    </operation>
+    <operation name="submitReturn">
+      <input wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/submitReturnRequest" message="tns:submitReturn" />
+      <output wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/submitReturnResponse" message="tns:submitReturnResponse" />
+    </operation>
+    <operation name="confirmReturn">
+      <input wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/confirmReturnRequest" message="tns:confirmReturn" />
+      <output wsam:Action="http://services.model.crms.cbn.gov.ng/ReturnSubmissionWSEJBBean/confirmReturnResponse" message="tns:confirmReturnResponse" />
+    </operation>
+  </portType>
+  <binding name="ReturnSubmissionWSEJBBeanPortBinding" type="tns:ReturnSubmissionWSEJBBean">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="validateBVN">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="validateTIN">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="validateTINRecord">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="creditCheck">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="creditCheckSummary">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="submitReturn">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="confirmReturn">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ReturnSubmissionWSEJBBeanService">
+    <port name="ReturnSubmissionWSEJBBeanPort" binding="tns:ReturnSubmissionWSEJBBeanPortBinding">
+      <soap:address location="http://10.163.20.65:7101/CRMS-Core-Model-webapp/ReturnSubmissionWSEJBBeanService" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,43 @@
+﻿@model App.Web.ViewModels.ViewFintechsViewModel
+
+@{
+    ViewBag.Title = "View Fintechs";
+}
+
+<div class="row mb-4">
+    <div class="col-12 d-flex align-items-center justify-content-between">
+        <h5 class="page-title">View Fintechs</h5>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 table-responsive">
+        <div class="card">
+            <div class="card-body">
+                <div class="alert alert-fill-info" role="alert">
+                    <i class="mdi mdi-comment-alert"></i>
+                    These are the existing fintechs within the system.
+                </div>
+
+                @if (TempData["Alert"] != null)
+                {
+                    @Html.Partial("_Alert", TempData["Alert"])
+                }
+
+                @if (Model.FintechModels != null && Model.FintechModels.Count > 0)
+                {
+                    @Html.Partial("_FintechList", Model.FintechModels)
+                }
+                else
+                {
+                    <div class="alert alert-fill-info" role="alert">
+                        <i class="mdi mdi-alert-circle"></i>
+                        No records exist yet!
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

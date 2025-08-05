@@ -1,0 +1,114 @@
+﻿@model App.Web.ViewModels.AssignRoleAccessViewModel
+
+<form action="@Url.Action("AssignRoleAccess")" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.RoleId)
+    @if (Model.SelectedSubMenus != null && Model.SelectedSubMenus.Count > 0)
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <strong>#</strong>
+                    </th>
+                    <th>
+                        <strong>Access Name</strong>
+                    </th>
+                    <th>
+                        <strong>Menu Display</strong>
+                    </th>
+                    <th>
+                        <div class="form-check form-check-flat">
+                            <input type="checkbox" class="form-check-input" id="checkAll" onclick="CheckUncheckCheckbox(this.checked)">
+                            <br />
+                        </div>
+                    </th>
+                    <th class="hidden">
+                        &nbsp;
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var i = 0; i < Model.SelectedSubMenus.Count(); i++)
+                {
+                <tr>
+                    <td>
+                        @(i + 1).
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.SelectedSubMenus[i].AccessName)
+                    </td>
+                    <td>
+                        @*@{
+                            var menuDisplayName = Model.SelectedSubMenus[i].DisplayName;
+                            if (string.IsNullOrEmpty(menuDisplayName))
+                            {
+                                menuDisplayName = "N/A";
+                            }
+                        }
+
+                        @menuDisplayName*@
+
+                        @if (Model.SelectedSubMenus[i].DisplayFlag)
+                        {
+                            <span class="badge badge-success">
+                                Visible
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-danger">
+                                Invisible
+                            </span>
+                        }
+                    </td>
+                    <td>
+                        <div class="form-check form-check-flat">
+                            @Html.CheckBoxFor(model => model.SelectedSubMenus[i].IsSelected, new { @class = "form-check-input" })
+                        </div>
+                    </td>
+                    <td class="hidden">
+                        @Html.HiddenFor(model => model.SelectedSubMenus[i].SelectedSubMenuId)
+                        @Html.HiddenFor(model => model.SelectedSubMenus[i].SelectedAccessName)
+                    </td>
+                </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>
+                        <strong>#</strong>
+                    </th>
+                    <th>
+                        <strong>Access Name</strong>
+                    </th>
+                    <th>
+                        <strong>Menu Display</strong>
+                    </th>
+                    <th>
+                        <div class="form-check form-check-flat">
+                            <input type="checkbox" class="form-check-input" id="checkAll" onclick="CheckUncheckCheckbox(this.checked)">
+                            <br />
+                        </div>
+                    </th>
+                    <th class="hidden">
+                        &nbsp;
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+        <br />
+        <button type="submit" class="btn btn-success btn-xs mr-2">
+            <i class="mdi mdi-file-document"></i>
+            Assign/Unassign
+        </button>
+    }
+    else
+    {
+        <div class="alert alert-fill-info" role="alert">
+            <i class="mdi mdi-alert-circle"></i>
+            No pending records exist yet!
+        </div>
+    }
+</form>

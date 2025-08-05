@@ -1,0 +1,91 @@
+﻿@model App.Web.ViewModels.CreateUsersViewModel
+
+@{
+    /**/
+
+    ViewBag.Title = "Create New User";
+}
+
+<div class="row mb-4">
+    <div class="col-12 d-flex align-items-center justify-content-between">
+        <h4 class="page-title">
+            Create Back-Office User <img id="loading-spinner" src="@Url.Content("~/assets/images/me.gif")" style="display: none;" />
+        </h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                @if (TempData["Alert"] != null)
+                {
+                    @Html.Partial("_Alert", TempData["Alert"])
+                }
+
+                <form class="forms-sample" action="@Url.Action("CreateNewUser")" method="post">
+                    @Html.AntiForgeryToken()
+                    @Html.Partial("_User", Model.UserModel)
+                    <button type="submit" class="btn btn-success btn-xs mr-2">
+                        <i class="mdi mdi-file-document"></i>
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section customScripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Username').on('keyup', function () {
+                var staffId = $(this).val();
+                if (staffId.length >= 8) {
+                    getStaffDetails(staffId);
+                }
+            })
+            $("#divAccountStatus").hide();
+            $("#divQueryString").hide();
+        });
+
+        function getStaffDetails(staffId) {
+            $.ajax({
+                url: "@Url.Action("GetStaffDetails", "Base")",
+                data: { staffId: staffId },
+                type: "GET",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                beforeSend: function () {
+                    $("#loading-spinner").show();
+                },
+                success: function (response) {
+                    console.log(response);
+                    var result = JSON.parse(response);
+                    if (result.ResponseCode == "00") {
+                        var surname = result.StaffSurname;
+                        var firstname = result.StaffFirstname;
+                        var middlename = result.StaffMiddlename;
+                        var fullname = surname + ", " + firstname + " " + middlename;
+                        var emailAddress = result.StaffEmailAddress;
+                        sweetAlert("Staff Details fetched Successfully", "Fullname: " + fullname + "\nEmail Address: " + emailAddress + "\nPlease confirm the details before you proceed", "success");
+                    }
+                    else {
+                        sweetAlert("Failed to fetch Staff Details", result.ResponseDescription, "error");
+                    }
+                },
+                complete: function () {
+                    $("#loading-spinner").hide();
+                },
+                error: function (error) {
+                    alert(error.responseText);
+                }
+            });
+        }
+                
+    </script>
+}
+

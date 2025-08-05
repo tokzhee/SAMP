@@ -1,0 +1,55 @@
+﻿@model List<App.Web.Models.SalaryPaymentModel>
+
+<p>
+    Salary Payment History - Atleast Two (2) Months
+</p>
+<p>
+    <table class="table table-bordered table-striped table-sm table-responsive">
+        <thead>
+            <tr>
+                <th><strong>#</strong></th>
+                <th><strong>Month</strong><br /><small> <span class='text-danger'>** salary payment evidence for all months must be uploaded</span></small></th>
+                <th><strong>Transaction Amount (&#8358;)</strong></th>
+                <th><strong>Transaction Date</strong></th>
+                <th><strong>Upload Payment Evidence</strong><br /><small> <span class='text-danger'>** allowed upload document formats are .pdf,.png,.jpg,.jpeg</span></small></th>
+                <th hidden="hidden">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.Count(); i++)
+            {
+                <tr>
+                    <td>
+                        @(i + 1).
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model[i].Month)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model[i].TranctionAmount, new { @class = "form-control input-sm", placeholder = "Amount here . . ." })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model[i].TransactionDate, new { @class = "form-control input-sm", @type = "Date" })
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(Model[i].FileEvidenceSavePath))
+                        {
+                            <a href="@Url.Content(Model[i].FileEvidenceSavePath)" target="_blank">
+                                view and download already uploaded evidence
+                            </a>
+                        }
+                        else
+                        {
+                            @Html.TextBoxFor(model => model[i].FileEvidence, new { @class = "form-control input-sm", type = "file", accept = ".pdf, .png, .jpg, .jpeg" })
+                        }
+                    </td>
+                    <td hidden="hidden">
+                        @Html.HiddenFor(model => model[i].Month)
+                        @Html.HiddenFor(model => model[i].FileEvidenceSavePath)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</p>
+

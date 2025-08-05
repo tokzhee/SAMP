@@ -1,0 +1,175 @@
+﻿@model App.Web.ViewModels.ViewEmployerProfiledSalaryAccountsReportViewModel
+
+@{
+    ViewBag.Title = "View Employer-Profiled Salary Accounts Report";
+}
+
+<div class="row mb-4">
+    <div class="col-12 d-flex align-items-center justify-content-between">
+        <h5 class="page-title">
+            View Employer-Profiled Salary Accounts Report
+        </h5>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                @if (TempData["Alert"] != null)
+                {
+                    @Html.Partial("_Alert", TempData["Alert"])
+                }
+
+                <form class="forms-sample" action="@Url.Action("ViewEmployerProfileSalaryAccountsReport")" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="">
+                                    Search Criteria
+                                </label>
+                                @Html.DropDownListFor(model => model.EmployerProfiledSalaryAccountSearchCriteriaId, Model.EmployerProfiledSalaryAccountSearchCriteriaSelectListItems, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" id="div1">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="">
+                                    Employer
+                                </label>
+                                @Html.DropDownListFor(model => model.EmployerId, Model.EmployersSelectListItems, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" id="div2">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="">
+                                    Account Number
+                                </label>
+                                @Html.TextBoxFor(model => model.AccountNumber, new { @class = "form-control input-sm", id = "Account Number", placeholder = "Account Number here . . ." })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" id="div3">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="">
+                                    From
+                                </label>
+                                @Html.TextBoxFor(model => model.From, new { @class = "form-control input-sm", @type = "Date" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="">
+                                    To
+                                </label>
+                                @Html.TextBoxFor(model => model.To, new { @class = "form-control input-sm", @type = "Date" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" id="divSubmit">
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-primary btn-xs mr-2">
+                                <i class="mdi mdi-file-document"></i>
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <br />
+
+                @if (!string.IsNullOrEmpty(Convert.ToString(ViewBag.ReportAction)))
+                {
+                    <iframe src="~/ReportViewer.aspx?action=@Convert.ToString(ViewBag.ReportAction)&criteria=@HttpUtility.UrlEncode(Convert.ToString(ViewBag.EmployerProfiledSalaryAccountSearchCriteriaId))&employer=@HttpUtility.UrlEncode(Convert.ToString(ViewBag.EmployerId))&accountnumber=@HttpUtility.UrlEncode(Convert.ToString(ViewBag.AccountNumber))&from=@HttpUtility.UrlEncode(Convert.ToString(ViewBag.DateFrom))&to=@HttpUtility.UrlEncode(Convert.ToString(ViewBag.DateTo))" style="width:100%; " frameborder="0" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);'></iframe>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section CustomScripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var defaultCriteriaId = $("#EmployerProfiledSalaryAccountSearchCriteriaId").val();
+            switch (defaultCriteriaId) {
+                    case "1":
+                        $("#div1").show();
+                        $("#div2").hide();
+                        $("#div3").hide();
+                        $("#divSubmit").show();
+                        break;
+                    case "2":
+                        $("#div1").hide();
+                        $("#div2").show();
+                        $("#div3").hide();
+                        $("#divSubmit").show();
+                        break;
+                    case "3":
+                        $("#div1").hide();
+                        $("#div2").hide();
+                        $("#div3").show();
+                        $("#divSubmit").show();
+                        break;
+                    default:
+                        $("#div1").hide();
+                        $("#div2").hide();
+                        $("#div3").hide();
+                        $("#divSubmit").hide();
+                        break;
+                }
+
+            $("#EmployerProfiledSalaryAccountSearchCriteriaId").change(function () {
+                var criteriaId = $("#EmployerProfiledSalaryAccountSearchCriteriaId").val();
+                showControls(criteriaId);
+            });
+        });
+
+        function showControls(criteriaId) {
+            switch (criteriaId) {
+                    case "0":
+                        location.href = "@Url.Action("ViewEmployerProfileSalaryAccountsReport", "Reports")"
+                        break;
+                    case "1":
+                        $("#div1").show();
+                        $("#div2").hide();
+                        $("#div3").hide();
+                        $("#divSubmit").show();
+                        break;
+                    case "2":
+                        $("#div1").hide();
+                        $("#div2").show();
+                        $("#div3").hide();
+                        $("#divSubmit").show();
+                        break;
+                    case "3":
+                        $("#div1").hide();
+                        $("#div2").hide();
+                        $("#div3").show();
+                        $("#divSubmit").show();
+                        break;
+                    default:
+                        $("#div1").hide();
+                        $("#div2").hide();
+                        $("#div3").hide();
+                        $("#divSubmit").hide();
+                        break;
+                }
+        }
+        function resizeIframe(obj) {
+            obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
+}
+

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsTransactionReport" targetNamespace="http://tempuri.org/dsTransactionReport.xsd" xmlns:mstns="http://tempuri.org/dsTransactionReport.xsd" xmlns="http://tempuri.org/dsTransactionReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsTransactionReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsTransactionReport" msprop:Generator_UserDSName="dsTransactionReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsTransactionReport" msprop:Generator_TableClassName="dsTransactionReportDataTable" msprop:Generator_TableVarName="tabledsTransactionReport" msprop:Generator_RowChangedName="dsTransactionReportRowChanged" msprop:Generator_TablePropName="_dsTransactionReport" msprop:Generator_RowDeletingName="dsTransactionReportRowDeleting" msprop:Generator_RowChangingName="dsTransactionReportRowChanging" msprop:Generator_RowEvHandlerName="dsTransactionReportRowChangeEventHandler" msprop:Generator_RowDeletedName="dsTransactionReportRowDeleted" msprop:Generator_RowClassName="dsTransactionReportRow" msprop:Generator_UserTableName="dsTransactionReport" msprop:Generator_RowEvArgName="dsTransactionReportRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DateTimeReq" msprop:Generator_ColumnVarNameInTable="columnDateTimeReq" msprop:Generator_ColumnPropNameInRow="DateTimeReq" msprop:Generator_ColumnPropNameInTable="DateTimeReqColumn" msprop:Generator_UserColumnName="DateTimeReq" type="xs:string" minOccurs="0" />
+              <xs:element name="TranNr" msprop:Generator_ColumnVarNameInTable="columnTranNr" msprop:Generator_ColumnPropNameInRow="TranNr" msprop:Generator_ColumnPropNameInTable="TranNrColumn" msprop:Generator_UserColumnName="TranNr" type="xs:string" minOccurs="0" />
+              <xs:element name="MessageType" msprop:Generator_ColumnVarNameInTable="columnMessageType" msprop:Generator_ColumnPropNameInRow="MessageType" msprop:Generator_ColumnPropNameInTable="MessageTypeColumn" msprop:Generator_UserColumnName="MessageType" type="xs:string" minOccurs="0" />
+              <xs:element name="Pan" msprop:Generator_ColumnVarNameInTable="columnPan" msprop:Generator_ColumnPropNameInRow="Pan" msprop:Generator_ColumnPropNameInTable="PanColumn" msprop:Generator_UserColumnName="Pan" type="xs:string" minOccurs="0" />
+              <xs:element name="FromAccountId" msprop:Generator_ColumnVarNameInTable="columnFromAccountId" msprop:Generator_ColumnPropNameInRow="FromAccountId" msprop:Generator_ColumnPropNameInTable="FromAccountIdColumn" msprop:Generator_UserColumnName="FromAccountId" type="xs:string" minOccurs="0" />
+              <xs:element name="ToAccountId" msprop:Generator_ColumnVarNameInTable="columnToAccountId" msprop:Generator_ColumnPropNameInRow="ToAccountId" msprop:Generator_ColumnPropNameInTable="ToAccountIdColumn" msprop:Generator_UserColumnName="ToAccountId" type="xs:string" minOccurs="0" />
+              <xs:element name="TranAmountReq" msprop:Generator_ColumnVarNameInTable="columnTranAmountReq" msprop:Generator_ColumnPropNameInRow="TranAmountReq" msprop:Generator_ColumnPropNameInTable="TranAmountReqColumn" msprop:Generator_UserColumnName="TranAmountReq" type="xs:string" minOccurs="0" />
+              <xs:element name="TranAmountResp" msprop:Generator_ColumnVarNameInTable="columnTranAmountResp" msprop:Generator_ColumnPropNameInRow="TranAmountResp" msprop:Generator_ColumnPropNameInTable="TranAmountRespColumn" msprop:Generator_UserColumnName="TranAmountResp" type="xs:string" minOccurs="0" />
+              <xs:element name="TerminalId" msprop:Generator_ColumnVarNameInTable="columnTerminalId" msprop:Generator_ColumnPropNameInRow="TerminalId" msprop:Generator_ColumnPropNameInTable="TerminalIdColumn" msprop:Generator_UserColumnName="TerminalId" type="xs:string" minOccurs="0" />
+              <xs:element name="RetrievalReferenceNr" msprop:Generator_ColumnVarNameInTable="columnRetrievalReferenceNr" msprop:Generator_ColumnPropNameInRow="RetrievalReferenceNr" msprop:Generator_ColumnPropNameInTable="RetrievalReferenceNrColumn" msprop:Generator_UserColumnName="RetrievalReferenceNr" type="xs:string" minOccurs="0" />
+              <xs:element name="SystemTraceAuditNr" msprop:Generator_ColumnVarNameInTable="columnSystemTraceAuditNr" msprop:Generator_ColumnPropNameInRow="SystemTraceAuditNr" msprop:Generator_ColumnPropNameInTable="SystemTraceAuditNrColumn" msprop:Generator_UserColumnName="SystemTraceAuditNr" type="xs:string" minOccurs="0" />
+              <xs:element name="RspCodeRsp" msprop:Generator_ColumnVarNameInTable="columnRspCodeRsp" msprop:Generator_ColumnPropNameInRow="RspCodeRsp" msprop:Generator_ColumnPropNameInTable="RspCodeRspColumn" msprop:Generator_UserColumnName="RspCodeRsp" type="xs:string" minOccurs="0" />
+              <xs:element name="SourceNodeName" msprop:Generator_ColumnVarNameInTable="columnSourceNodeName" msprop:Generator_ColumnPropNameInRow="SourceNodeName" msprop:Generator_ColumnPropNameInTable="SourceNodeNameColumn" msprop:Generator_UserColumnName="SourceNodeName" type="xs:string" minOccurs="0" />
+              <xs:element name="SinkNodeName" msprop:Generator_ColumnVarNameInTable="columnSinkNodeName" msprop:Generator_ColumnPropNameInRow="SinkNodeName" msprop:Generator_ColumnPropNameInTable="SinkNodeNameColumn" msprop:Generator_UserColumnName="SinkNodeName" type="xs:string" minOccurs="0" />
+              <xs:element name="FinacleTermId" msprop:Generator_ColumnVarNameInTable="columnFinacleTermId" msprop:Generator_ColumnPropNameInRow="FinacleTermId" msprop:Generator_ColumnPropNameInTable="FinacleTermIdColumn" msprop:Generator_UserColumnName="FinacleTermId" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,65 @@
+﻿@model List<App.Web.Models.FintechOnBoardingDocumentsModel>
+
+<p>
+    <strong>
+        FINTECH On-Boarding Documents
+    </strong>
+    <div class="alert alert-fill-info" role="alert">
+        <i class="mdi mdi-alert-circle"></i>
+        NB: Documents marked <span style="color: red">*</span> are compulsory.
+    </div>
+</p>
+<p>
+    <table id="fintechOnBoardingDocument" class="table table-borderless table-sm table-responsive">
+        <thead>
+            <tr>
+                <th><strong>#</strong></th>
+                <th hidden="hidden">
+                    <strong>Document Id</strong>
+                    <strong>Document Name</strong>
+                    <strong>Document Save Path</strong>
+                </th>
+                <th><strong>Document Name</strong><small> <span class='text-danger'>** allowed upload document formats is .pdf</span></small></th>
+                <th>&nbsp;</th>
+            </tr>
+            
+        </thead>
+       
+        <tbody>
+            @for (var i = 0; i < Model.Count(); i++)
+            {
+                <tr>
+                    <td>
+                        @(i + 1).
+                    </td>
+                    <td hidden="hidden">
+                        @Html.HiddenFor(model => model[i].DocumentId)
+                        @Html.HiddenFor(model => model[i].DocumentName)
+                        @Html.HiddenFor(model => model[i].DocumentSavePath)
+                        @Html.HiddenFor(model => model[i].MandatoryFlag)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model[i].DocumentName)
+                        &nbsp;
+                        @if (!string.IsNullOrEmpty(Model[i].DocumentSavePath))
+                        {
+                            <a href="@Url.Content(Model[i].DocumentSavePath)" target="_blank">
+                                view and download already uploaded document
+                            </a>
+                        }
+                        &nbsp;
+                        @if (Model[i].MandatoryFlag)
+                        {
+                            <span style="color: red">*</span>
+                        }
+
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model[i].DocumentFile, new { @class = "form-control input-sm", type = "file", accept = ".pdf" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</p>
+

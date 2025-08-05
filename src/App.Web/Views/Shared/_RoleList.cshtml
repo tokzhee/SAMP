@@ -1,0 +1,115 @@
+﻿@using App.DataModels.Models
+@model List<App.Web.Models.RoleModel>
+
+@{
+    var subMenuList = (from subMenu in CacheData.Submenus
+                       join roleMenu in (List<rolemenu>)Session["RoleMenu"] on subMenu.id equals roleMenu.menu_sub_id
+                       where subMenu.active_flag.Equals(true)
+                       select new
+                       {
+                           id = subMenu.id,
+                           display_name = subMenu.display_name,
+                           access_name = subMenu.access_name,
+                           main_menu_id = subMenu.main_menu_id,
+                           url = subMenu.url,
+                           active_flag = subMenu.active_flag,
+                           arrangement_order = subMenu.arrangement_order,
+                           display_flag = subMenu.display_flag
+                       }).ToList();
+}
+
+<table id="order-listing" class="table table-hover table-responsive table-borderless">
+    <thead>
+        <tr>
+            <th><strong>#</strong></th>
+            <th><strong>Role Name</strong></th>
+            <th><strong>Status</strong></th>
+            <th><strong>Reserved?</strong></th>
+            <th><strong>Created on</strong></th>
+            <th><strong>By</strong></th>
+            <th><strong>Approved on</strong></th>
+            <th><strong>By</strong></th>
+            <th><strong>Last Modified on</strong></th>
+            <th><strong>By</strong></th>
+            @if (subMenuList.Any(c => c.access_name.ToLower().Contains("edit existing role")))
+            {
+                <th> &nbsp; </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var sn = 1;
+        }
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@(sn++).</td>
+            <td>@item.RoleName</td>
+            <td>
+                @if (item.ActiveFlag)
+                {
+                    <label class="badge badge-success">
+                        Active
+                    </label>
+                }
+                else
+                {
+                    <span class="badge badge-danger">
+                        Inactive
+                    </span>
+                }
+
+            </td>
+            <td>
+                @if (item.ReservedFlag)
+                {
+                    <label class="badge badge-danger">
+                        Y
+                    </label>
+                }
+                else
+                {
+                    <span class="badge badge-success">
+                        N
+                    </span>
+                }
+
+            </td>
+            <td>@item.CreatedOn</td>
+            <td>@item.CreatedBy</td>
+            <td>@item.ApprovedOn</td>
+            <td>@item.ApprovedBy</td>
+            <td>@item.LastModifiedOn</td>
+            <td>@item.LastModifiedBy</td>
+            @if (subMenuList.Any(c => c.access_name.ToLower().Contains("edit existing role")))
+            {
+                if (!item.ReservedFlag)
+                {
+                    <td>
+                        <div class="btn-group-sm">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret">
+                                    Options
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu" style="padding: 15px;">
+                                @if (subMenuList.Any(c => c.access_name.ToLower().Contains("edit existing role")))
+                                {
+                                    <li class="text-center">
+                                        <a href="@Url.Action("EditExistingRole", new { q= item.UrlQueryString})" title="Edit Role">
+                                            Edit Role
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+
+                    </td>
+                }
+            }
+        </tr>
+        }
+    </tbody>
+
+</table>

@@ -1,0 +1,47 @@
+﻿@model App.Web.ViewModels.EditFintechContactPersonViewModel
+
+    @{
+        ViewBag.Title = "Edit Existing Fintech Contact Person";
+    }
+
+    <div class="row mb-4">
+        <div class="col-12 d-flex align-items-center justify-content-between">
+            <h5 class="page-title">Edit Existing Fintech Contact Person</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Alert"] != null)
+                    {
+                        @Html.Partial("_Alert", TempData["Alert"])
+                    }
+
+                    <form class="forms-sample" action="@Url.Action("EditExistingFintechContactPerson")" method="post">
+                        @Html.AntiForgeryToken()
+                        @Html.Partial("_Person", Model.PersonModel)
+                        <a href="@Url.Action("ViewFintechs")" class="btn btn-primary btn-xs mr-2">
+                            <i class="mdi mdi-refresh"></i>
+                            Back
+                        </a>
+                        <button type="submit" class="btn btn-success btn-xs mr-2">
+                            <i class="mdi mdi-file-document"></i>
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section CustomScripts
+{
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#divEmailAddress").hide();
+                $("#divQueryString").hide();
+            });
+        </script>
+    }

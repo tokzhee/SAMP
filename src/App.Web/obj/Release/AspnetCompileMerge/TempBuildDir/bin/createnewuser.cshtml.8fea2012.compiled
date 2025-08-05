@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Views/UserAdministration/CreateNewUser.cshtml" hash="6403310e" filehash="fffff7acdbc00337" flags="110000" assembly="App_Web_l0mk1zq2" type="ASP._Page_Views_UserAdministration_CreateNewUser_cshtml">
+    <filedeps>
+        <filedep name="/Views/UserAdministration/CreateNewUser.cshtml" />
+    </filedeps>
+</preserve>

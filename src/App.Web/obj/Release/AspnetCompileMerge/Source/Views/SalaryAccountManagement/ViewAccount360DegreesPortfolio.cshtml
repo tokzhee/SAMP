@@ -1,0 +1,503 @@
+﻿@model App.Web.ViewModels.ViewAccount360DegreesPortfolioViewModel
+@using App.Core.Utilities
+
+@{
+    ViewBag.Title = "View Account 360-Degrees Portfolio";
+}
+
+<div class="row mb-4">
+    <div class="col-12 d-flex align-items-center justify-content-between">
+        <h5 class="page-title">
+            View Account 360-Degrees Portfolio
+        </h5>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                @if (TempData["Alert"] != null)
+                {
+                    @Html.Partial("_Alert", TempData["Alert"])
+                }
+
+                <form class="forms-sample" action="@Url.Action("ViewAccount360DegreesPortfolio")" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="">
+                                Account Number
+                            </label>
+                            @Html.TextBoxFor(model => model.AccountNumber, new { @class = "form-control input-sm", placeholder = "Type account number here . . ." })
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-xs mr-2">
+                        <i class="mdi mdi-file-document"></i>
+                        Search
+                    </button>
+                </form>
+
+                @if (Model.ShowAccordions)
+                {
+                    <p>
+                        <div class="accordion basic-accordion" id="accordion" role="tablist">
+
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingOne">
+                                    <h6 class="mb-0">
+                                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                            <i class="card-icon mdi mdi-checkbox-marked-circle-outline"></i>
+                                            Account Details
+                                            &nbsp;
+                                            @if (Model.AccountDetailsModel != null)
+                                            {
+                                                <div class="badge badge-pill badge-info ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-check font-weight-bold"></i>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="badge badge-pill badge-danger ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-close font-weight-bold"></i>
+                                                </div>
+                                            }
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body">
+                                        @if (Model.AccountDetailsModel != null)
+                                        {
+                                            @Html.Partial("_AccountDetails", Model.AccountDetailsModel)
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingTwo">
+                                    <h6 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <i class="card-icon mdi mdi-account-multiple-outline"></i>
+                                            Customer Details
+                                            &nbsp;
+                                            @if (Model.CustomerDetailsModel != null)
+                                            {
+                                                <div class="badge badge-pill badge-info ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-check font-weight-bold"></i>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="badge badge-pill badge-danger ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-close font-weight-bold"></i>
+                                                </div>
+                                            }
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body">
+                                        @if (Model.CustomerDetailsModel != null)
+                                        {
+                                            @Html.Partial("_CustomerDetails", Model.CustomerDetailsModel)
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingThree">
+                                    <h6 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <i class="card-icon icon-user"></i>
+                                            Relationship Manager Details
+                                            &nbsp;
+                                            @if (Model.AccountRelationshipManagerModel != null)
+                                            {
+                                                <div class="badge badge-pill badge-info ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-check font-weight-bold"></i>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="badge badge-pill badge-danger ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-close font-weight-bold"></i>
+                                                </div>
+                                            }
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                                    <div class="card-body">
+                                        @if (Model.AccountRelationshipManagerModel != null)
+                                        {
+                                            @Html.Partial("_AccountRelationshipManager", Model.AccountRelationshipManagerModel)
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingFour">
+                                    <h6 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            <i class="card-icon icon-credit-card"></i>
+                                            Accounts Maintained in the Bank
+                                            &nbsp;
+                                            @if (Model.CustomerAccountModels != null && Model.CustomerAccountModels.Count > 0)
+                                            {
+                                                <div class="badge badge-pill badge-info ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-check font-weight-bold"></i>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="badge badge-pill badge-danger ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-close font-weight-bold"></i>
+                                                </div>
+                                            }
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
+                                    <div class="card-body">
+                                        @if (Model.CustomerAccountModels != null && Model.CustomerAccountModels.Count > 0)
+                                        {
+                                            @Html.Partial("_CustomerAccountList", Model.CustomerAccountModels)
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingFive">
+                                    <h6 class="mb-0">
+                                        <a data-toggle="collapse" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                            <i class="card-icon mdi mdi-checkbox-marked-circle-outline"></i>
+                                            Customer Loan Exposure
+                                            &nbsp;
+                                            @if (Model.LoanExposureModels != null && Model.LoanExposureModels.Count > 0)
+                                            {
+                                                <div class="badge badge-pill badge-danger ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-close font-weight-bold"></i>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="badge badge-pill badge-info ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-check font-weight-bold"></i>
+                                                </div>
+                                            }
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordion">
+                                    <div class="card-body">
+                                        @if (Model.LoanExposureModels != null && Model.LoanExposureModels.Count > 0)
+                                        {
+                                            @Html.Partial("_LoanExposureList", Model.LoanExposureModels)
+                                        }
+                                        else
+                                        {
+                                            <div class="alert alert-info" role="alert">
+                                                <i class="mdi mdi-alert-circle"></i>
+                                                No loan record found ...
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingSix">
+                                    <h6 class="mb-0">
+                                        <a data-toggle="collapse" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                            <i class="card-icon icon-wrench"></i>
+                                            BVN Check Details
+                                            &nbsp;
+                                            @if (Model.IsValidBvn)
+                                            {
+                                                <div class="badge badge-pill badge-info ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-check font-weight-bold"></i>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="badge badge-pill badge-danger ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-close font-weight-bold"></i>
+                                                </div>
+                                            }
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix" data-parent="#accordion">
+                                    <div class="card-body">
+                                        @if (Model.BvnDetailsModel != null)
+                                        {
+                                            @Html.Partial("_BvnDetails", Model.BvnDetailsModel)
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingSeven">
+                                    <h6 class="mb-0">
+                                        <a data-toggle="collapse" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                            <i class="card-icon icon-anchor"></i>
+                                            CRMS Check Details
+                                            &nbsp;
+                                            @if (Model.IsValidCRMS)
+                                            {
+                                                <div class="badge badge-pill badge-info ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-check font-weight-bold"></i>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="badge badge-pill badge-danger ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-close font-weight-bold"></i>
+                                                </div>
+                                            }
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingSeven" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="form-control">
+                                                <strong>
+                                                    @Model.CRMSSummary
+                                                </strong>
+                                            </span>
+                                        </p>
+
+                                        <br />
+
+                                        @if (Model.CRMSDetailsModels != null)
+                                        {
+                                            @Html.Partial("_CRMSDetails", Model.CRMSDetailsModels)
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingSevenn">
+                                    <h6 class="mb-0">
+                                        <a data-toggle="collapse" href="#collapseSevenn" aria-expanded="false" aria-controls="collapseSevenn">
+                                            <i class="card-icon mdi mdi-file-document"></i>
+                                            CRC Check Details
+                                            &nbsp;
+                                            @if (Model.IsValidCRC)
+                                            {
+                                                <div class="badge badge-pill badge-info ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-check font-weight-bold"></i>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="badge badge-pill badge-danger ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-close font-weight-bold"></i>
+                                                </div>
+                                            }
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="collapseSevenn" class="collapse" role="tabpanel" aria-labelledby="headingSevenn" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="form-control">
+                                                <strong>
+                                                    @Html.Raw(Model.CRCSummary)
+                                                </strong>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingEight">
+                                    <h6 class="mb-0">
+                                        <a data-toggle="collapse" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                            <i class="card-icon mdi mdi-book-open-variant"></i>
+                                            Employer's History
+                                            &nbsp;
+                                            @if (Model.EmployerHistoryModels != null && Model.EmployerHistoryModels.Count > 0)
+                                            {
+                                                <div class="badge badge-pill badge-info ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-check font-weight-bold"></i>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="badge badge-pill badge-danger ml-auto px-1 py-1">
+                                                    <i class="mdi mdi-close font-weight-bold"></i>
+                                                </div>
+                                            }
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight" data-parent="#accordion">
+                                    <div class="card-body">
+                                        @if (Model.EmployerHistoryModels != null && Model.EmployerHistoryModels.Count > 0)
+                                        {
+                                            @Html.Partial("_EmployerHistory", Model.EmployerHistoryModels)
+                                        }
+                                        else
+                                        {
+                                            <div class="alert alert-danger" role="alert">
+                                                <i class="mdi mdi-alert-circle"></i>
+                                                No visible employer profiled yet. Click <a href="@Url.Action("UpdateEmployerDetailsInSingle","SalaryAccountManagement", new { q = HttpUtility.UrlEncode(EncryptionUtility.Encrypt(Model.AccountNumber, ConfigurationUtility.GetAppSettingValue("EncryptionKey")))})">here</a> to profile employer.
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingNine">
+                                    <h6 class="mb-0">
+                                        <a data-toggle="collapse" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                            <i class="card-icon mdi mdi-access-point-network"></i>
+                                            Already Identified as Salary Account?
+                                            &nbsp;
+                                            @if (Model.SalProfilingDetailsModel != null)
+                                            {
+                                                if (Model.SodaRacDetailsModel != null)
+                                                {
+                                                    <div class="badge badge-pill badge-info ml-auto px-1 py-1">
+                                                        <i class="mdi mdi-check font-weight-bold"></i>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="badge badge-pill badge-danger ml-auto px-1 py-1">
+                                                        <i class="mdi mdi-close font-weight-bold"></i>
+                                                    </div>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (Model.SodaRacDetailsModel != null)
+                                                {
+                                                    <div class="badge badge-pill badge-info ml-auto px-1 py-1">
+                                                        <i class="mdi mdi-check font-weight-bold"></i>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="badge badge-pill badge-danger ml-auto px-1 py-1">
+                                                        <i class="mdi mdi-close font-weight-bold"></i>
+                                                    </div>
+                                                }
+                                            }
+
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="headingNine" data-parent="#accordion">
+                                    <div class="card-body">
+                                        @if (Model.SalProfilingDetailsModel != null)
+                                        {
+                                            if (Model.SodaRacDetailsModel != null)
+                                            {
+                                                <div class="alert alert-info" role="alert">
+                                                    <i class="mdi mdi-alert-circle"></i>
+                                                    The account number: <strong>@Model.AccountNumber</strong> is part of the already identified salary accounts and has been profiled on First Advance RAC. Average Salary is @Model.SodaRacDetailsModel.AverageSalary
+                                                    &nbsp;
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="alert alert-danger" role="alert">
+                                                    <i class="mdi mdi-alert-circle"></i>
+                                                    The account number: <strong>@Model.AccountNumber</strong> has already been identified and processes are already in place to profile on First Advance RAC.
+                                                    &nbsp;
+                                                </div>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (Model.SodaRacDetailsModel != null)
+                                            {
+                                    <div class="alert alert-info" role="alert">
+                                        <i class="mdi mdi-alert-circle"></i>
+                                        The account number: <strong>@Model.AccountNumber</strong> has already been profiled on First Advance RAC. Average Salary is @Model.SodaRacDetailsModel.AverageSalary
+                                        &nbsp;
+                                    </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="alert alert-danger" role="alert">
+                                                    <i class="mdi mdi-alert-circle"></i>
+                                                    The account number: <strong>@Model.AccountNumber</strong> is neither identified nor profiled on First Advance RAC. To initiate profiling, click <a href="@Url.Action("ProfileIdentifiedSalaryAccount", "SalaryAccountManagement", new { q = HttpUtility.UrlEncode(EncryptionUtility.Encrypt(Model.AccountNumber, ConfigurationUtility.GetAppSettingValue("EncryptionKey")))})">here</a>
+                                                    &nbsp;
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+
+
+                                @*
+                                        <div class="card">
+                                        <div class="card-header" role="tab" id="headingNine">
+                                            <h6 class="mb-0">
+                                                <a data-toggle="collapse" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                                    <i class="card-icon mdi mdi-access-point-network"></i>
+                                                    Already Identified as Salary Account?
+                                                    &nbsp;
+                                                    @if (Model.SalProfilingDetailsModel != null)
+                                                    {
+                                                        <div class="badge badge-pill badge-info ml-auto px-1 py-1">
+                                                            <i class="mdi mdi-check font-weight-bold"></i>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="badge badge-pill badge-danger ml-auto px-1 py-1">
+                                                            <i class="mdi mdi-close font-weight-bold"></i>
+                                                        </div>
+                                                    }
+                                                </a>
+                                            </h6>
+                                        </div>
+                                        <div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="headingNine" data-parent="#accordion">
+                                            <div class="card-body">
+                                                @if (Model.SalProfilingDetailsModel != null)
+                                                {
+                                                    @Html.Partial("_SalProfilingDetails", Model.SalProfilingDetailsModel)
+                                                }
+                                                else
+                                                {
+                                                    <div class="alert alert-info" role="alert">
+                                                        <i class="mdi mdi-alert-circle"></i>
+                                                        Not Part of the newly identified salary accounts ...
+                                                        &nbsp;
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                *@
+
+
+                            </div>
+
+                        </div>
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section CustomScripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#AccountNumber').on('keyup', function () {
+                var accountNumber = $(this).val();
+                if (accountNumber.length >= 10) {
+                    getAccountName(accountNumber);
+                }
+            })
+        });
+    </script>
+}

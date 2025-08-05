@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://nibbs-bvn-validator-dev.fbn-devops-dev-asenv.appserviceenvironment.net/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" />
+  <xs:element name="BVNEnquiry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BVNEnquiryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="BVNEnquiryResult" nillable="true" type="q1:BVNEnquiryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BVNEnquiry2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BVNEnquiry2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="BVNEnquiry2Result" nillable="true" type="q2:BVNEnquiryResponse2" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateBVN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BvnNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateBVNResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="ValidateBVNResult" nillable="true" type="q3:ValidatorResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateBVNWithAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateBVNWithAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="ValidateBVNWithAccountResult" nillable="true" type="q4:ValidatorResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkBVNWithAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="Details" nillable="true" type="q5:LinkRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkBVNWithAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="LinkBVNWithAccountResult" nillable="true" type="q6:LinkBVNResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkBVNWithAccountiBPS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="Details" nillable="true" type="q7:LinkRequestiBPS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkBVNWithAccountiBPSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="LinkBVNWithAccountiBPSResult" nillable="true" type="q8:LinkBVNResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkBVNWithCustID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="Details" nillable="true" type="q9:LinkRequestCustID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkBVNWithCustIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="LinkBVNWithCustIDResult" nillable="true" type="q10:ArrayOfLinkBVNResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoLinkBVNWithAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="Details" nillable="true" type="q11:AutoLinkRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoLinkBVNWithAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="AutoLinkBVNWithAccountResult" nillable="true" type="q12:LinkBVNResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBVN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="Details" nillable="true" type="q13:UpdateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBVNResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/NIBBSBVNValidator" minOccurs="0" name="UpdateBVNResult" nillable="true" type="q14:UpdateBVNResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

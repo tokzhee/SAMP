@@ -1,0 +1,263 @@
+﻿@model App.Web.Models.UserModel
+
+<div class="profile-header text-white  d-md-block">
+    <div class="d-flex justify-content-around">
+        <div class="profile-info d-flex justify-content-center align-items-md-center">
+
+            @{
+                var passportSrc = string.IsNullOrEmpty(Model.Passport) ? "~/Assets/images/user-blank.png" : Model.Passport;
+            }
+
+            <img class="rounded-circle img-lg" src="@Url.Content(passportSrc)" alt="profile image">
+            <div class="wrapper pl-4">
+                <p class="profile-user-name">
+                    @Model.Fullname
+                </p>
+                <div class="wrapper d-flex align-items-center">
+                    <p class="profile-user-designation">
+                        @Model.RoleName
+                    </p>
+                </div>
+
+                @if (Model.IsVisiblePassportUploadLink)
+                {
+                    <i class="menu-icon icon-cloud-upload"></i>
+                    <a href="#" data-toggle="modal" data-target="#passportUploadModal">
+                        Upload Profile Picture
+                    </a>
+                }
+
+                <br />
+
+                @if (Model.IsVisibleChangePasswordLink)
+                {
+                    <i class="menu-icon icon-lock"></i>
+                    <a href="#" data-toggle="modal" data-target="#changePasswordModal">
+                        Change Password
+                    </a>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="profile-body pt-0 pt-sm-4">
+    <p>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>
+                        <strong>Username</strong>
+                    </label>
+                    <span class="form-control">
+                        @Model.Username
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>
+                        <strong>Authentication Type</strong>
+                    </label>
+                    <span class="form-control">
+                        @Model.AuthenticationTypeName
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>
+                        <strong>Surname</strong>
+                    </label>
+                    <span class="form-control">
+                        @Model.Surname
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>
+                        <strong>Firstname</strong>
+                    </label>
+                    <span class="form-control">
+                        @Model.Firstname
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>
+                        <strong>Middlename</strong>
+                    </label>
+                    <span class="form-control">
+                        @Model.Middlename
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>
+                        <strong>Mobile Number</strong>
+                    </label>
+                    <span class="form-control">
+                        @Model.MobileNumber
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>
+                        <strong>Email Address</strong>
+                    </label>
+                    <span class="form-control">
+                        @Model.EmailAddress
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>
+                        <strong>Role</strong>
+                    </label>
+                    <span class="form-control">
+                        @Model.RoleName
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>
+                        <strong>Account Status</strong>
+                    </label>
+                    <span class="form-control">
+                        @Model.AccountStatusName
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>
+                        <strong>Last Login Date</strong>
+                    </label>
+                    <span class="form-control">
+                        @Model.LastLoginDate
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>
+                        <strong>Last Logout Date</strong>
+                    </label>
+                    <span class="form-control">
+                        @Model.LastLogoutDate
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>
+                        <strong>Last Modified Date</strong>
+                    </label>
+                    <span class="form-control">
+                        @Model.LastModifiedOn
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </p>
+</div>
+<div class="modal fade" id="passportUploadModal" tabindex="-1" role="dialog" aria-labelledby="passportUploadModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <form class="forms-sample" action="@Url.Action("UploadUserProfilePicture","UserAdministration")" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.UrlQueryString)
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="passportUploadModal">
+                        Upload Profile Picture
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">
+                            Browse
+                        </label>
+                        @Html.TextBoxFor(model => model.PassportFile, new { @class = "form-control input-sm", type = "file", accept = ".png, .jpg, .jpeg" })
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn-xs">
+                        Submit
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <form class="forms-sample" action="@Url.Action("ChangePassword","Account")" method="post">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.UrlQueryString)
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changePasswordModal">
+                        Change Password
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">
+                            <i class="mdi mdi-lock-outline"></i>
+                            Current Password
+                        </label>
+                        <input type="password" name="currentPassword" class="form-control input-sm" placeholder="Current Password here . . ." autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">
+                            <i class="mdi mdi-lock-outline"></i>
+                            New Password
+                        </label>
+                        <input type="password" name="newPassword" class="form-control input-sm" placeholder="New Password here . . ." autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">
+                            <i class="mdi mdi-lock-outline"></i>
+                            Confirm Password
+                        </label>
+                        <input type="password" name="confirmNewPassword" class="form-control input-sm" placeholder="Confirm Password here . . ." autocomplete="off" />
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn-xs">
+                        Submit
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

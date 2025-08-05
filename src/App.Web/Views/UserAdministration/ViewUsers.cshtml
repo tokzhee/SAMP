@@ -1,0 +1,42 @@
+﻿@using App.Web.Models
+@using App.DataModels.Models
+@model App.Web.ViewModels.ViewUsersViewModel
+
+@{
+    ViewBag.Title = "Back-Office Users";
+}
+
+<div class="row mb-4">
+    <div class="col-12 d-flex align-items-center justify-content-between">
+        <h5 class="page-title">View Users</h5>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 table-responsive">
+        <div class="card">
+            <div class="card-body">
+                <div class="alert alert-fill-info" role="alert">
+                    <i class="mdi mdi-comment-alert"></i>
+                    These are the existing users within the system.
+                </div>
+                @if (TempData["Alert"] != null)
+                {
+                    @Html.Partial("_Alert", TempData["Alert"])
+                }
+
+                @if (Model.UserModels != null && Model.UserModels.Count > 0)
+                {
+                    @Html.Partial("_UserList", Model.UserModels)
+                }
+                else
+                {
+                    <div class="alert alert-fill-info" role="alert">
+                        <i class="mdi mdi-alert-circle"></i>
+                        No records exist yet!
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

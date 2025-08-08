@@ -2,24 +2,19 @@ name: "CodeQL Advanced"
 
 on:
   push:
-    branches: [ "master" ]  # Change to "main" if needed
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
   schedule:
-    - cron: '17 16 * * 2'  # Every Tuesday at 16:17 UTC
+    - cron: '17 16 * * 2'
 
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
     runs-on: windows-latest
     permissions:
-      # Required for all workflows
       security-events: write
-
-      # Required to fetch internal or private CodeQL packs
       packages: read
-
-      # Only required for workflows in private repositories
       actions: read
       contents: read
 
@@ -36,31 +31,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Setup .NET SDK
-      - name: Setup .NET
-        if: matrix.language == 'csharp'
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'  # Adjust if using another version
-
-      # Restore .NET dependencies
       - name: Restore .NET dependencies
         if: matrix.language == 'csharp'
-        run: dotnet restore src/SalaryAccountManagementPortal.sln  # Change to your actual solution file
+        run: msbuild src/SalaryAccountManagementPortal.sln /t:Restore
 
-      # Build the .NET solution
-      - name: Build .NET solution
+      - name: Build .NET solution with MSBuild
         if: matrix.language == 'csharp'
-        run: dotnet build src/SalaryAccountManagementPortal.sln --configuration Release --no-restore  # Replace with your solution file if different
+        run: msbuild src/SalaryAccountManagementPortal.sln /p:Configuration=Release /p:DeployOnBuild=true
 
-      # Initialize CodeQL
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
+          config-file: .github/codeql/codeql-config.yml
 
-      # Perform CodeQL Analysis
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:

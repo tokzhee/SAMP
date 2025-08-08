@@ -46,12 +46,12 @@ jobs:
       # Restore .NET dependencies
       - name: Restore .NET dependencies
         if: matrix.language == 'csharp'
-        run: dotnet restore SalaryAccountManagementPortal.sln  # Change to your actual solution file
+        run: dotnet restore src/SalaryAccountManagementPortal.sln  # Change to your actual solution file
 
       # Build the .NET solution
       - name: Build .NET solution
         if: matrix.language == 'csharp'
-        run: dotnet build SalaryAccountManagementPortal.sln --configuration Release --no-restore  # Replace with your solution file if different
+        run: dotnet build src/SalaryAccountManagementPortal.sln --configuration Release --no-restore  # Replace with your solution file if different
 
       # Initialize CodeQL
       - name: Initialize CodeQL

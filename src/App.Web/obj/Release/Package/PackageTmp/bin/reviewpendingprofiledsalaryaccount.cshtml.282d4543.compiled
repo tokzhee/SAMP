@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<preserve resultType="2" virtualPath="/Views/SalaryAccountManagement/ReviewPendingProfiledSalaryAccount.cshtml" hash="6403310e" filehash="19d2a3c7f987" flags="110000" assembly="App_Web_awvl5xq0" type="ASP._Page_Views_SalaryAccountManagement_ReviewPendingProfiledSalaryAccount_cshtml">
-    <filedeps>
-        <filedep name="/Views/SalaryAccountManagement/ReviewPendingProfiledSalaryAccount.cshtml" />
-    </filedeps>
-</preserve>

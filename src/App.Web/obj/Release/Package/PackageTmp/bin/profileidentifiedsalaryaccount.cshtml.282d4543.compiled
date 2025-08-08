@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<preserve resultType="2" virtualPath="/Views/SalaryAccountManagement/ProfileIdentifiedSalaryAccount.cshtml" hash="6403310e" filehash="ffffc27eac679da4" flags="110000" assembly="App_Web_awvl5xq0" type="ASP._Page_Views_SalaryAccountManagement_ProfileIdentifiedSalaryAccount_cshtml">
-    <filedeps>
-        <filedep name="/Views/SalaryAccountManagement/ProfileIdentifiedSalaryAccount.cshtml" />
-    </filedeps>
-</preserve>

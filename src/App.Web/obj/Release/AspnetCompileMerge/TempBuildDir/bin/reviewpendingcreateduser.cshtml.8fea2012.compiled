@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<preserve resultType="2" virtualPath="/Views/UserAdministration/ReviewPendingCreatedUser.cshtml" hash="6403310e" filehash="36dc4ba8fdc4" flags="110000" assembly="App_Web_l0mk1zq2" type="ASP._Page_Views_UserAdministration_ReviewPendingCreatedUser_cshtml">
-    <filedeps>
-        <filedep name="/Views/UserAdministration/ReviewPendingCreatedUser.cshtml" />
-    </filedeps>
-</preserve>

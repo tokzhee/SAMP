@@ -1018,6 +1018,7 @@ namespace App.Web.Controllers
 
         [HttpPost]
         [Route("load-identified-salary-accounts")]
+        [ValidateAntiForgeryToken]
         public ActionResult LoadIdentifiedSalaryAccounts(string q)
         {
             const string callerFormMethod = "HttpGet|LoadIdentifiedSalaryAccounts";

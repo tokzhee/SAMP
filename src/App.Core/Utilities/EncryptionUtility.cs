@@ -11,13 +11,15 @@ namespace App.Core.Utilities
         {
             try
             {
-                TripleDESCryptoServiceProvider service = new TripleDESCryptoServiceProvider();
-                MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-
-                byte[] key = md5.ComputeHash(Encoding.ASCII.GetBytes(password));
-                byte[] iv = md5.ComputeHash(Encoding.ASCII.GetBytes(password));
-
-                return Transform(input, service.CreateEncryptor(key, iv));
+                AesCryptoServiceProvider service = new AesCryptoServiceProvider();
+                // Use PBKDF2 for key and IV derivation
+                byte[] salt = Encoding.UTF8.GetBytes("App.Core.Utilities.EncryptionUtility.Salt"); // Fixed salt for compatibility
+                using (var keyDerivation = new Rfc2898DeriveBytes(password, salt, 10000))
+                {
+                    byte[] key = keyDerivation.GetBytes(service.KeySize / 8);
+                    byte[] iv = keyDerivation.GetBytes(service.BlockSize / 8);
+                    return Transform(input, service.CreateEncryptor(key, iv));
+                }
             }
             catch (Exception)
             {
@@ -28,13 +30,15 @@ namespace App.Core.Utilities
         {
             try
             {
-                TripleDESCryptoServiceProvider service = new TripleDESCryptoServiceProvider();
-                MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-
-                byte[] key = md5.ComputeHash(Encoding.ASCII.GetBytes(password));
-                byte[] iv = md5.ComputeHash(Encoding.ASCII.GetBytes(password));
-
-                return Transform(input, service.CreateDecryptor(key, iv));
+                AesCryptoServiceProvider service = new AesCryptoServiceProvider();
+                // Use PBKDF2 for key and IV derivation
+                byte[] salt = Encoding.UTF8.GetBytes("App.Core.Utilities.EncryptionUtility.Salt"); // Fixed salt for compatibility
+                using (var keyDerivation = new Rfc2898DeriveBytes(password, salt, 10000))
+                {
+                    byte[] key = keyDerivation.GetBytes(service.KeySize / 8);
+                    byte[] iv = keyDerivation.GetBytes(service.BlockSize / 8);
+                    return Transform(input, service.CreateDecryptor(key, iv));
+                }
             }
             catch (Exception)
             {

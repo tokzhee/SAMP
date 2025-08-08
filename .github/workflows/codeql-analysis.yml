@@ -2,11 +2,11 @@ name: "CodeQL Advanced"
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master" ]  # Change to "main" if needed
   pull_request:
     branches: [ "master" ]
   schedule:
-    - cron: '17 16 * * 2'
+    - cron: '17 16 * * 2'  # Every Tuesday 16:17 UTC
 
 jobs:
   analyze:
@@ -31,20 +31,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Restore .NET dependencies
+      # Use full MSBuild path for .NET Framework projects
+      - name: Restore .NET dependencies with MSBuild
         if: matrix.language == 'csharp'
-        run: msbuild src/SalaryAccountManagementPortal.sln /t:Restore
+        run: '"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe" src/SalaryAccountManagementPortal.sln /t:Restore'
 
-      - name: Build .NET solution with MSBuild
+      - name: Build .NET Framework Solution with MSBuild
         if: matrix.language == 'csharp'
-        run: msbuild src/SalaryAccountManagementPortal.sln /p:Configuration=Release /p:DeployOnBuild=true
+        run: '"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe" src/SalaryAccountManagementPortal.sln /p:Configuration=Release /p:DeployOnBuild=true'
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
-          config-file: .github/codeql/codeql-config.yml
+          config-file: .github/codeql/codeql-config.yml  # Points to ignore config
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3

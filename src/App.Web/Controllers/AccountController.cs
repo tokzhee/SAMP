@@ -167,7 +167,10 @@ namespace App.Web.Controllers
 
                         if (!string.IsNullOrEmpty(returnUrl) && HttpUtility.UrlDecode(returnUrl) != $"{ConfigurationUtility.GetAppSettingValue("ApplicationDeployedFolderPath")}/account/logout")
                         {
-                            return Redirect(returnUrl);
+                            if (Url.IsLocalUrl(returnUrl))
+                            {
+                                return Redirect(returnUrl);
+                            }
                         }
 
                         return RedirectToAction("dashboard", "home");

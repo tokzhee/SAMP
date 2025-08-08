@@ -46,7 +46,7 @@ jobs:
       # Restore .NET dependencies
       - name: Restore .NET dependencies
         if: matrix.language == 'csharp'
-        run: dotnet restore App.Web.sln  # Change to your actual solution file
+        run: dotnet restore SalaryAccountManagementPortal.sln  # Change to your actual solution file
 
       # Build the .NET solution
       - name: Build .NET solution

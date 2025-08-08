@@ -13,6 +13,19 @@
 'use strict';
 
 (function ($) {
+
+  // Escapes HTML special characters in a string
+  function escapeHtml(text) {
+    var map = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    };
+    return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+  }
+
   $.fn.tableExport = function (options) {
     var defaults = {
       csvEnclosure:        '"',
@@ -660,7 +673,11 @@
         var $table = $(this);
 
         if (docName === '') {
-          docName = defaults.mso.worksheetName || $table.find('caption').text() || 'Table';
+          var captionText = $table.find('caption').text();
+          if (captionText) {
+            captionText = escapeHtml(captionText);
+          }
+          docName = defaults.mso.worksheetName || captionText || 'Table';
           docName = $.trim(docName.replace(/[\\\/[\]*:?'"]/g, '').substring(0, 31));
         }
 

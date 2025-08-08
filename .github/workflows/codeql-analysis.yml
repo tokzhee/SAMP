@@ -1,0 +1,67 @@
+name: "CodeQL Advanced"
+
+on:
+  push:
+    branches: [ "master" ]  # Change to "main" if needed
+  pull_request:
+    branches: [ "master" ]
+  schedule:
+    - cron: '17 16 * * 2'  # Every Tuesday at 16:17 UTC
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+    permissions:
+      # Required for all workflows
+      security-events: write
+
+      # Required to fetch internal or private CodeQL packs
+      packages: read
+
+      # Only required for workflows in private repositories
+      actions: read
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: csharp
+            build-mode: manual
+          - language: javascript-typescript
+            build-mode: none
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Setup .NET SDK
+      - name: Setup .NET
+        if: matrix.language == 'csharp'
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'  # Adjust if using another version
+
+      # Restore .NET dependencies
+      - name: Restore .NET dependencies
+        if: matrix.language == 'csharp'
+        run: dotnet restore App.Web.sln  # Change to your actual solution file
+
+      # Build the .NET solution
+      - name: Build .NET solution
+        if: matrix.language == 'csharp'
+        run: dotnet build App.Web.sln --configuration Release --no-restore  # Replace with your solution file if different
+
+      # Initialize CodeQL
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
+
+      # Perform CodeQL Analysis
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"

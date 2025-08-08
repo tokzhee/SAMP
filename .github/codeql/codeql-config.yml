@@ -1,2 +1,3 @@
 paths-ignore:
   - src/App.Web/Assets/vendors/js/vendor.bundle.addons.js
+  - src/App.Web/Assets/vendors/js/vendor.bundle.base.js

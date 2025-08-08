@@ -51,7 +51,7 @@ jobs:
       # Build the .NET solution
       - name: Build .NET solution
         if: matrix.language == 'csharp'
-        run: dotnet build App.Web.sln --configuration Release --no-restore  # Replace with your solution file if different
+        run: dotnet build SalaryAccountManagementPortal.sln --configuration Release --no-restore  # Replace with your solution file if different
 
       # Initialize CodeQL
       - name: Initialize CodeQL
